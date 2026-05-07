@@ -1,0 +1,48 @@
+\documentclass[../../../main/main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Primative Notions}
+For our axiomatic system, we define three primative notions comprising of one object and two relations that together form a structure. The first of these are points, which are designnated using upper case latin letters, \(A, B, C, \dots\). Each point is a member of the set \(\mathbf{P}\mathbf{P}\), which is defined as \(\mathbf{P} \coloneq \{P \mid P is a point \}\). This set is equpped with a ternary relation \(\mathcal{B}\) (betwenessness) and an equivalence relation \(\cong\) (congruency). Together, these form the plane \(\mathcal{P}\).
+\[ \mathcal{P} \coloneq \langle \mathbf{P}, \mathcal{B}, \cong \rangle.\]
+Let the set \(\mathbf{P}\) denote the set of all points such that 
+\[P \in \mathbf{P}. \]
+
+\section{Plane}
+Let the plane there be a structure $\mathcal{P}$ equipped with a domain $\mathbf{P}$ and relations $\mathcal{B}$ and $\cong$.
+\begin{definition}[Plane]
+    A plane is a structure
+    \[
+    \mathcal{P} = (P, \mathcal{B}, \cong)
+    \]
+    where \(P\) is a non-empty domain.
+\end{definition}
+
+\section{Points}
+The domain of the plane, denoted $\mathbf{P}$, is referred to as the set of all points. In this foundational layer, a "point" is defined not through simplier parts, but rather solely by its membership in this set. That is, an object $P$ is a point if $P \in \mathbf{P}$. Points are denoted using capital italics such as $A$, $B$, $C$, $\dots$.
+
+Intuitvely, a point can be thought of as a unique position in space/on the plane, or in the Euclidean tradition a point is "that which has no part". A point has no magnitude, length, width, or depth, and thus can be considered (informally) as $0$-dimensional. However, in our formal system we move away from physical descriptions and treat points simply as a primative object that cannot be defined further. Formally, we define a point as follows:
+\[
+\forall P (P \text{ is a point} \iff P \in \mathbf{P}).
+\]
+
+\section{Betweenness}
+Betweenness is a ternary relation on the set of all points, denoted by $\mathcal{B} \subseteq \mathbf{P}^3$. We write $\mathcal{B}(A, B, C)$ to assert that point $B$ lies \textit{between} points $A$ and $C$. 
+
+Unlike a set $\{A, B, C\}$, where the order of elements is irrelevant, the relation $\mathcal{B}$ is defined as the cartesian product $\mathbf{P} \times \mathbf{P} \times \mathbf{P}$. Thus, 
+\[
+\mathcal{B} \subseteq \mathbf{P}^3 \coloneqq \{(A, B, C) \mid A, B, C \in \mathbf{P}\}.
+\]
+Saying that the betweness relation holds for $A$, $B$ and $C$ is equivlalent to saying that their triple is an element of that subset:
+\[
+\mathcal{B}(A, B, C) \iff (A, B, C) \in \mathcal{B}.
+\]
+
+\section{Congruence}
+Congruence is a quaternary relation on $\mathbf{P}$ used to denote that two pairs of points are equidistant. While typically visualized as a binary relation between segments, in our point-primitive system, it is formally an equivalence relation on the set of ordered pairs $\mathbf{P} \times \mathbf{P}$. We denote this relation using the symbol $\cong$. 
+
+If the relation holds for the pairs $(A, B)$ and $(C, D)$, we write $(A, B) \cong (C, D)$, which is interpreted as the distance from $A$ to $B$ being equal to the distance from $C$ to $D$. 
+
+Intuitively, congruence represents the ``rigidity'' of the plane. It allows us to move geometric configurations from one location to another while preserving their size and shape. In the Euclidean tradition, this corresponds to the ability to place one segment onto another such that they coincide perfectly. Formally, this relation satisfies the requirements of an equivalence relation—reflexivity, symmetry, and transitivity—on the domain of point-pairs.
+
+\end{document}

@@ -1,0 +1,87 @@
+\documentclass[../../../main/main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Partition of the Plane}
+
+\section{Plane Separation Axiom}
+
+The previous axioms of betweenness govern the linear ordering of points and are therefore limited to a single dimension. To extend this to two dimensions, we introduce the Plane Separation Axiom. This asserts that a line acts as a parition splitting the plane into two discint, non-overlapping regions, which is then used to describe a nototion of points membership to one side of a given line through its logical equivalence to the negation of the previously defined notion of segment intersection.
+\begin{axiom}[Plane Separation]
+For every line $l \in \mathbf{L}$, there exist two sets $H_{l,A}, H_{l,B} \subset \mathbf{P} \setminus l$ such that:
+\begin{enumerate}
+    \item $H_{l,A} \cup H_{l,B} = \mathbf{P} \setminus l \land H_{l,A} \cap H_{l,B} = \emptyset$.
+    \item $\forall A, B \in \mathbf{P} \setminus l \colon \left( \exists X \in l, \mathcal{B}(A, X, B) \iff \{A, B\} \not\subset H_{l1} \land \{A, B\} \not\subset H_{l2} \right)$.
+\end{enumerate}
+\end{axiom}
+explain the meaning-of-axioms-here
+
+\section{Same-Side Relation}
+We formalize the concept of 'being on the same side' through the Same-Side Relation ($\mathcal{S}$). It is defined by the absence of a seperation/parition of the plane: two points are related if and only if unique segment connecting them does not contain any point of the boundary line $l$. This definition ensures the relation is based upon the primative notion of betweeness.
+Specifically, we define $\mathcal{S}$ as a subset of the cartesian product $\mathcal{S} \subseteq \mathbf{P} \times \mathbf{P} \times \mathbf{L}$.
+\begin{definition}[Same-Side Relation]
+    Given a line $l \in \mathbf{L}$, any two points $A, B \in \mathbf{P} \setminus {l}$ are related by $\mathcal{S}$ if there does not exist a point $X \in l$ such that $\mathcal{B}(A, X, B)$. That is,
+    \[
+    \mathcal{S}(A, B, l) \iff \nexists X \in l \colon \mathcal{B}(A, X, B).
+    \]
+\end{definition}
+
+\section{Half-Planes}
+
+By grouping all points related to a reference point $A$ by $\mathcal{S}$, we construct the geometrical object known as the half-plane ($H_{l,A}$). This transition allows us to treat regions of the plane as sets that can be intersected to form more complex figures, such as angles and triangles.
+\begin{definition}[Half-Plane]
+    Let $l \in \mathbf{L}$ be a line and let $A \in \mathbf{P}$ be a reference point such that $A \notin l$. The half-plane detirmined by $l$ and $A$, denoted $H_{l,A}$, is the subset of the point-set consistening of all points on the same side of $l$ as $A$. That is,
+    \[
+    H_{l,A} \coloneqq \{X \in \mathbf{P} \setminus l \mid \mathcal{S}(A, X, l)\}.
+    \]
+\end{definition}
+
+This geometric object allows us to move beyond comparisons between single points. A point $X$ being on the same same as point $Y$ is the same as $X$ being an element of the half-plane $H_{l,y}$. This will show incredibily useful in defining derived geometric figures.
+
+\section{Theorems}
+
+\begin{theorem}[Same-Side Reflexivity]
+    For any point $A \in \mathbf{P}$ that is not a member of any given line $l \in \mathbf{L}$, the following must hold:
+    \[
+    \forall l \in \mathbf{L}, \forall A \in \mathbf{P} \colon \mathcal{S}(A, A, l).
+    \]
+\end{theorem}
+\begin{proof}
+    Let there be a line $l \in \mathbf{L}$ and a point $A \in \mathbf{P} \setminus l$. We proceed by contradiction. Assuming the same-side relation $\mathcal{S}(A, A, l)$ is false, it follows that $\nexists X \in l \colon \mathcal{B}(A, X, A)$ is false by definition, and that therefore there does exist an $X \in l$ satisfing these conditions. As a consequence, by the Idenity/Reflexivity of Betweenness $A = X$.
+
+    However, we have defined that $A \notin l$. Since our assumption leads to a contradiction, it must be that no such point $X$ exists. Thus, $\mathcal{S}(A, A, l)$ is true.
+\end{proof}
+
+\begin{theorem}[Same-Side Symmetry]
+    \[
+    \mathcal{S}(A, B, l) \iff \mathcal{S}(B, A, l).
+    \]
+\end{theorem}
+\begin{proof}
+    Firstly, we note that $\mathcal{S}(A, B, l) \iff \nexists X \in l \colon \mathcal{B}(A, X, B)$ by definition. By the Symmetry of Betweeness, the right-hand side of this is equivalent to $\nexists X \in l \colon \mathcal{B}(B, X, A)$, thus showing
+    \[
+    X \in l \colon \neg \mathcal{B}(A, X, B) \iff X \in l \colon \neg \mathcal{B}(B, X, A).
+    \]
+    The hand-side is by definition equivalent to $\mathcal{S}(B, A, l)$. Thus, by the transitivity of the biconditional, we conclude $\mathcal{S}(A, B, l) \iff \mathcal{S}(B, A, l)$.
+\end{proof}
+
+\begin{theorem}[Same-Side Transitivity]
+    Given any line $l \in \mathbf{L}$ and points $A, B, C \in \mathbf{P} \setminus l$, the relation $\mathcal{S}$ satisfies:
+    \[
+    \mathcal{S}(A, B, l) \land \mathcal{S}(B, C, l) \implies \mathcal{S}(A, C, l).
+    \]
+\end{theorem}
+\begin{proof}
+    By the Plane Seperation Axiom, we know there must exist two distint sets $H_{l1}$ and $H_{l2}$ whose union is $\mathbf{P} \setminus l$. Since $A$, $B$, and $C$ are not on $l$, each must belong to exactly one of these two sets.
+
+    Assume $\mathcal{S}(A, B, l)$. By definition, they are contained within the same set. Without loss of generality, let $A, B \in H_{l1}$.
+
+    Assume $\mathcal{S}(B, C, l)$. Similarily, this implies they are in the same set. We previously established that $B \in H_{l1}$, implying that $C \in H_{l1}$ by the plane seperation axiom ($H_{l1} \cap H_{l2} = \emptyset$).
+
+    We now have $A \in H_{l1}$ and $C \in H_{l1}$. By the inverse of PSA2, there does not exist a point $X \in l$ such that $\mathcal{B}(A, X, C)$. Thus, by definition, $A$ and $C$ must be related by the same-side relation. That is, $\mathcal{S}(A, C, l)$.
+\end{proof}
+
+randomideas:
+% reating the half-plane as an equivalence class is where your monograph moves from "drawing pictures" to "building a formal algebraic structure." In set theory, an equivalence relation partitions a set into disjoint "buckets." By proving $\mathcal{S}$ is an equivalence relation, you are proving that the plane is perfectly organized.Here is the deeper dive into the formal mechanics and the "special powers" this gives you.1. The Partition TheoremOnce you prove $\mathcal{S}$ is an Equivalence Relation (Reflexivity, Symmetry, Transitivity), you get a massive mathematical "freebie": the Fundamental Theorem of Equivalence Relations.This theorem states that the equivalence classes of $\mathcal{S}$ form a partition of the set.What this means for you: You don't have to assume the half-planes are disjoint or that they cover the whole plane. If you define them as equivalence classes, the logic of set theory forces them to be disjoint and exhaustive.2. Representative IndependenceBecause $H_{l,A}$ is an equivalence class, any point in the half-plane can serve as its "name" or representative.The "Special Power": If $B \in H_{l,A}$, then $H_{l,B} = H_{l,A}$.Application: In a proof, if you know a property holds for a point $A$, and you find another point $B$ on the same side, you can instantly swap them. This is vital for proving theorems about Angle Bisectors or Triangle Medians where you don't want to be tied to a specific coordinate.3. The Power of "Quotient Space"When you treat half-planes as equivalence classes, you are essentially looking at a Quotient Set:$$\mathbf{P} \setminus l \big/ \mathcal{S}$$The "special thing" here is that this quotient set has a cardinality of exactly 2.You can define a "Boolean" logic for the plane. A point is either in the class $[A]$ or it isn't.This allows you to define the Opposite-Side Relation ($\mathcal{O}$) simply as the negation of the equivalence relation:$$\mathcal{O}(A, B, l) \iff B \notin [A]_{\mathcal{S}}$$4. Defining "Interiors" via Set IntersectionsThis is the most practical "special thing" you can do. Once half-planes are formal sets (equivalence classes), you can use Boolean Algebra to define shapes.Interior of an Angle: Given $\angle ABC$, the interior is the intersection of two equivalence classes: $H_{\overleftrightarrow{AB}, C} \cap H_{\overleftrightarrow{BC}, A}$.Interior of a Triangle: The intersection of three equivalence classes.Without the equivalence class framework, "interior" is just a vague word. With it, the interior is a uniquely determined set of points that you can perform operations on (like finding the area or checking if a point is inside).
+
+\end{document}

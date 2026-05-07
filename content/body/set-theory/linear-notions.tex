@@ -1,0 +1,188 @@
+\documentclass[../../../main/main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Linear Notions}
+
+\section{Defintion of Linear Notions}
+A segment is a subset of $\mathbf{P}$ defined as the union of two discint points and all points between them. Symbolically, that is
+\begin{definition}[Segment]
+    \[
+    \forall A, B \in \mathbf{P}, A \neq B \implies AB \coloneqq \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\}.
+    \]
+\end{definition}
+A ray pointing from point $A$ to a discint point $B$ is a subset of $\mathbf{P}$ denoted as $\overrightarrow{AB}$. It is defined as the union of $A$, $B$, all points between $A$ and $B$, and all points such that $B$ is between $A$ and that point, that is
+\begin{definition}[Ray]
+    \[
+    \forall A, B \in \mathbf{P}, A \neq B \implies \overrightarrow{AB} \coloneqq \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}.
+    \]
+\end{definition}
+The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of the points $A$, $B$, all points between $A$ and $B$, all points where $A$ is between it and $B$, and all points where $B$ is between it and $A$. That is,
+\begin{definition}[Line]
+    \[
+    \forall A, B \in \mathbf{P}, A \neq B \implies \overleftrightarrow{AB} \coloneqq \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, A, B) \lor \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}.
+    \]
+\end{definition}
+
+\section{Properties of Linear Notions}
+
+\begin{theorem}[Distinctness of Betweenness]
+    If $\mathcal{B}(A, B, X)$ holds, then $A$, $B$, and $X$ are three distinct points:
+    \[
+    \forall A, B, X \in \mathbf{P}, \mathcal{B}(A, B, X) \implies (A \neq B \land B \neq X \land A \neq X).
+    \]
+\end{theorem}
+\begin{proof}
+    We proceed by contradiction. Suppose $\mathcal{B}(A, B, X)$ holds.
+
+    First, assume $A = X$. Substituting $A$ for $X$ in our hypothesis, we obtain $\mathcal{B}(A, B, A)$, which  implies $A = B$. If $A = B$, then the relation $\mathcal{B}(A, B, X)$ is equivalent to $\mathcal{B}(B, A, X)$. However, by the Order of Betweeness, $\mathcal{B}(A, B, X) \implies \neg \mathcal{B}(B, A, X)$. Here, we reach a contradiction and conclude our hypothesis must be false and thus $A \neq X$.
+
+    Next, we test the assumption $A = B$. Under this assumption, we substite our hypothesis to obtain $\mathcal{B}(B, A, X)$. Similarly, the Order of Betweeness shows these cannot be simutanously true, and thus our assumption must be false, meaning $A \neq B$.
+
+    Finally, by the Transitivity of Equality, $B \neq X$. Thus proving the result.
+\end{proof}
+
+\begin{theorem}[Segment Symmetry]
+    For any two points $A, B$, the segment $AB$ is equal to the segment $BA$.
+    \[
+    \forall A, B \in \mathbf{P}, AB = BA.
+    \]
+\end{theorem}
+\begin{proof}
+    By the definition of a line segment, we have:
+    \[
+    AB = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\}
+    \]
+    and
+    \[
+    BA = \{B, A\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A)\}.
+    \]
+    First, by the commutative property of sets, the endpoints are identical: $\{A, B\} = \{B, A\}$. 
+    
+    Second, we examine the sets of interior points. By the \textbf{Symmetry of Betweenness}, the relation $\mathcal{B}(A, X, B)$ holds if and only if $\mathcal{B}(B, X, A)$ holds. Formally, this implies:
+    \[
+    \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\} = \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A)\}.
+    \]
+    Since $AB$ and $BA$ are defined as the union of identical sets, they contain the same points. By the principle of extensionality in set theory, $AB = BA$.
+\end{proof}
+
+\begin{theorem}[Line Symmetry]
+    For any two distinct points $A$ and $B$, the line $\overleftrightarrow{AB}$ is equal to the segment $\overleftrightarrow{BA}$:
+    \[
+    \forall A, B \in \mathbf{P}, \overleftrightarrow{AB} = \overleftrightarrow{BA}.
+    \]
+\end{theorem}
+\begin{proof}
+    By the definition of a line, we have:
+    \[
+    \overleftrightarrow{AB} = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, A, B) \lor \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}
+    \]
+    and
+    \[
+    \overleftrightarrow{BA} = \{B, A\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, B, A) \lor \mathcal{B}(B, X, A) \lor \mathcal{B}(B, A, X)\}.
+    \]
+    First, by the commutative property of sets, the endpoints are identical: $\{A, B\} = \{B, A\}$. 
+    
+    Second, we demonstrate that the three cases of betweeness in $\overleftrightarrow{AB}$ are logically equivalent to those of $\overleftrightarrow{BA}$ using the by the \textbf{Symmetry of Betweenness}:
+    \begin{itemize}
+        \item $\{X \in \mathbf{P} \mid \mathcal{B}(X, A, B)\} = \{X \in \mathbf{P} \mid \mathcal{B}(B, A, X)\}$
+        \item $\{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\} = \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A)\}$
+        \item $\{X \in \mathbf{P} \mid \mathcal{B}(A, B, X)\} = \{X \in \mathbf{P} \mid \mathcal{B}(X, B, A)\}$
+    \end{itemize}
+    Since each condition for membership in $\overleftrightarrow{AB}$ is logically equivalent to a condition for membership in $\overleftrightarrow{BA}$, the sets contain the same points. Thus, by the principle of extensionality, $\overleftrightarrow{AB} = \overleftrightarrow{BA}$
+\end{proof}
+
+\begin{theorem}[Ray Asymmetry]
+    For any two distinct points $A, B \in \mathbf{P}$, the ray $\overrightarrow{AB}$ is not equal to the ray $\overleftarrow{BA}$:
+    \[
+    \forall A, B \in \mathbf{P}, A \neq B \implies \overrightarrow{AB} \neq \overrightarrow{BA}.
+    \]
+\end{theorem}
+\begin{proof}
+    We proceed by by contradiction. Assume that the rays for some distinct points $A, B \in \mathbf{P}$, $\overrightarrow{AB} = \overrightarrow{BA}$.
+
+    By the definition of a ray, we have:
+    \[
+    \overrightarrow{AB} = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\},
+    \]
+    and
+    \[
+    \overrightarrow{BA} = \{B, A\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A) \lor \mathcal{B}(B, A, X)\}.
+    \]
+    By the \textbf{Outer Point Axiom}, there must exist a point $Y$ such that $\mathcal{B}(A, B, Y)$. By the defintion of $\overrightarrow{AB}$, it follows that $Y \in \overrightarrow{AB}$. Under our initial assumption that the rays, $Y$ must be an element of $\overrightarrow{BA}$.
+    
+    By the Distinctness of Betweeness, the relation $\mathcal{B}(A, B, Y)$ implies that $A \neq Y$ and $B \neq Y$. Therefore, $Y \notin \{A, B\}$.
+
+    Since $Y \in \overrightarrow{BA}$ but is not an endpoint, it must satisfy $\mathcal{B}(B, Y, A)$ or $\mathcal{B}(B, A, Y)$.
+
+    However, because we know that $\mathcal{B}(A, B, Y)$ is true, by Order of Betweeness we have $\mathcal{B}(A, B, Y) \implies \neg \mathcal{B}(B, A, Y)$, and $\mathcal{B}(A, B, Y) \implies \neg \mathcal{B}(A, Y, B)$, which by the Symmetry of Betweeness is logically equivalent to $\mathcal{B}(A, B, Y) \implies \neg \mathcal{B}(B, Y, A)$.
+
+    Thus, both conditions for $Y$ to be an element of $\overrightarrow{BA}$ are false. Therefore, the rays $\overrightarrow{AB}$ and $\overrightarrow{BA}$ are not equal, thus proving the desired result.
+\end{proof}
+
+\begin{theorem}[Union of Opposite Rays]
+    For any two points $A, B \in \mathbf{P}$,
+    \[
+    \overleftarrow{AB} \cup \overrightarrow{AB} = \overleftrightarrow{AB}.
+    \]
+\end{theorem}
+\begin{proof}
+    By the definition of a ray, we have:
+    \[
+    \overleftarrow{AB} = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, A, B) \lor \mathcal{B}(A, X, B)\},
+    \]
+    and
+    \[
+    \overrightarrow{AB} = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}.
+    \]
+    The union of $\overleftarrow{AB}$ and $\overrightarrow{AB}$ therefore consists of the set, $\{B, A\}$, and all points $X$ such that $\mathcal{B}(X, A, B)$ or $\mathcal{B}(A, X, B)$, or $\mathcal{B}(A, B, X)$.
+
+    Note that this is is the same as the line $\overleftrightarrow{AB}$, as it is defined as the set
+    \[
+    \overleftrightarrow{AB} = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, A, B) \lor \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}.
+    \]
+    This set is equal to the union described above. Thus, the union of the rays $\overleftarrow{AB}$ and $\overrightarrow{AB}$ is equal to the line $\overleftrightarrow{AB}$.
+\end{proof}
+
+\begin{theorem}[Intersection of Opposite Rays]
+    For any two points $A, B \in \mathbf{P}$,
+    \[
+    \overleftarrow{AB} \cap \overrightarrow{AB} = AB.
+    \]
+\end{theorem}
+\begin{proof}
+    By the definition of a ray, we have:
+    \[
+    \overleftarrow{AB} = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, A, B) \lor \mathcal{B}(A, X, B)\},
+    \]
+    and
+    \[
+    \overrightarrow{AB} = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}.
+    \]
+    The intersection of $\overleftarrow{AB}$ and $\overrightarrow{AB}$ therefore consists of the set, $\{B, A\}$ and all points $X$ betweem $A$ and $B$, that is $\mathcal{B}(A, X, B)$.
+
+    This intersection consists of the same points contained in the segment $AB$, as
+    \[
+    AB = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\}.
+    \]
+    Thus, the union of the rays $\overleftarrow{AB}$ and $\overrightarrow{AB}$ is equal to the segment $AB$.
+\end{proof}
+
+% lemma X pg. 4
+
+\section{Parallelism}
+Two lines are parallel if they have no point in common. In our set-theoretic foundations, this is to mean that the intersection of the lines is the empty set.
+Because we define parallelism as a binary relation on lines, we first must have a set of all lines to work with. Thus, we let $\mathbf{P}$ be the domain called the set of all points and define $\mathbf{L}$ to be the collection of all subsets of $\mathbf{P}$ that consist of the line $\overleftarrow{AB}$ for a any given two points $A, B \in \mathbf{P}$. Formally, that is:
+\[
+\mathbf{L} \coloneqq \{l \subseteq \mathbf{P} \mid \exists A, B \in \mathbf{P} (A \neq B \land l = \overleftrightarrow{AB})\}.
+\]
+\begin{definition}[Parallel]
+    Given any lines $l, m \in \mathbf{L}$, we say $l$ is parallel to $m$ and write $l \parallel m$ if and only if they are the same same set of points or their set intersection is empty.
+    \[
+    \forall l, m \in \mathbf{L}, \, l \parallel m \iff (l = m) \lor (l \cap m = \emptyset).
+    \]
+\end{definition}
+
+add more here
+
+\end{document}

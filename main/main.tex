@@ -1,0 +1,50 @@
+\documentclass[11pt, openany, oneside]{book}
+
+\input{../config/packages.tex}
+\input{../config/theorem-setup.tex}
+
+\begin{document}
+
+\frontmatter
+
+\subfile{../content/frontmatter/title.tex}
+
+\subfile{../content/frontmatter/tableofcontents.tex}
+
+\subfile{../content/frontmatter/notation.tex}
+
+\mainmatter
+
+\part{Philosophical Foundations}
+
+\subfile{../content/body/philosophy/ontology.tex}
+
+\subfile{../content/body/philosophy/epistemology.tex}
+
+\part{Logical Foundations}
+
+\subfile{../content/body/logic/first-order.tex}
+
+\subfile{../content/body/logic/signnature.tex}
+
+\subfile{../content/body/logic/axiomatic-systems.tex}
+    
+\part{Set-Theoretic Geometry}
+    
+\subfile{../content/body/set-theory/primatives.tex}
+
+\subfile{../content/body/set-theory/axioms.tex}
+
+\subfile{../content/body/set-theory/plane-partition.tex}
+
+\subfile{../content/body/set-theory/angles.tex}
+
+\subfile{../content/body/set-theory/linear-notions.tex}
+
+\subfile{../content/body/set-theory/triangles.tex}
+
+\backmatter
+
+\subfile{../content/backmatter/index.tex}
+
+\end{document}

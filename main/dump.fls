@@ -1,0 +1,10 @@
+PWD /home/daniel/Desktop/axiomatic-geometry/main
+INPUT /home/daniel/storage/texlive_data/2025/texmf.cnf
+INPUT /home/daniel/storage/texlive_data/2025/texmf-dist/web2c/texmf.cnf
+INPUT /home/daniel/storage/texlive_data/2025/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /home/daniel/Desktop/axiomatic-geometry/content/body/dump.tex
+OUTPUT dump.log
+INPUT /home/daniel/storage/texlive_data/2025/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /home/daniel/storage/texlive_data/2025/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /home/daniel/storage/texlive_data/2025/texmf-dist/tex/latex/import/import.sty
+INPUT /home/daniel/storage/texlive_data/2025/texmf-dist/tex/latex/import/import.sty

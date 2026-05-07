@@ -1,0 +1,38 @@
+\documentclass[../../../main/main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Angles}
+
+As opposed to being a measure, we define an angle as angle as a geometric figure, ie: a set of points. Specifically, an angle is the union of two rays that share a common vertex.
+\begin{definition}[Angle]
+    An \textbf{angle} is the union of two rays $\overrightarrow{AO}$ and $\overrightarrow{OB}$ that share a common vertex $O$, denoted as follows
+    \[
+    \angle AOB \coloneqq \overrightarrow{AO} \cup \overrightarrow{OB}.
+    \]
+\end{definition}
+
+%change to AOB not ABC lmao
+Using the half-planes defined previously, we have the tools neccessary to describe the interior and exterior of an angle.
+\begin{definition}[Interior of an Angle]
+    For any three non-collinear points $A, B, C \in \mathbf{P}$, the \textbf{interior} of $\angle ABC$ is the set:
+    \[
+    \text{Int}(\angle ABC) \coloneqq \{ P \in \mathbf{P} \mid \mathcal{S}(P, A, \overleftrightarrow{BC}) \land \mathcal{S}(P, C, \overleftrightarrow{BA}) \}.
+    \]
+    Equivalently, this is the intersection of two half-planes:
+    \[
+    \text{Int}(\angle ABC) \coloneqq H_{\overleftrightarrow{BC}, A} \cap H_{\overleftrightarrow{BA}, C}.
+    \]
+\end{definition}
+\begin{definition}[Interior of an Angle]
+    For any three non-collinear points $A, B, C \in \mathbf{P}$, the \textbf{interior} of $\angle ABC$ is the set:
+    \[
+    \text{Int}(\angle ABC) \coloneqq \{ P \in \mathbf{P} \mid \mathcal{S}(P, A, \overleftrightarrow{BC}) \land \mathcal{S}(P, C, \overleftrightarrow{BA}) \}.
+    \]
+    Equivalently, this is the intersection of two half-planes:
+    \[
+    \text{Int}(\angle ABC) \coloneqq H_{\overleftrightarrow{BC}, A} \cap H_{\overleftrightarrow{BA}, C}.
+    \]
+\end{definition}
+
+\end{document}

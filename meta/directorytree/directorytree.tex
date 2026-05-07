@@ -1,0 +1,87 @@
+\documentclass{article}
+
+\usepackage{dirtree}
+% https://tug.ctan.org/macros/generic/dirtree/dirtree.pdf
+
+\begin{document}
+
+\dirtree{%
+.1 axiomatic-geometry.
+.2 main.
+.3 main.tex.
+.3 main.pdf.
+.2 config.
+.4 packages.tex.
+.3 macros.tex
+.4 theorems-setup.tex.
+.2 content.
+.3 frontmatter.
+.4 title.tex.
+.4 tableofcontents.tex.
+.4 notation.tex.
+.3 body.
+.4 philosphy.
+.5 ontology.tex.
+.5 epistemology.tex.
+.4 logic.
+.5 first-order.tex.
+.5 syntax.tex.
+.5 semantics.tex.
+.5 deduction.tex.
+.4 formal-system.
+.5 signatures.tex.
+.5 language.tex.
+.5 models.tex.
+.4 set-theory.
+.5 primitives.tex.
+.5 axioms.tex.
+.5 linear-notions.tex.
+%segments, rays, lines
+%point-line relation Sylvester’s Gallai Theorem
+%seperation/sides of a line
+%crossbar theorem
+%uniqueness of lines
+%inserctions of lines
+%segment bisection
+%paschs theorem
+%metric propetties of segments (is it even needed)?
+% parallelism/perp
+.5 angles.tex.
+% definition
+% angle interior vs exteior, angle measure
+% angle congruence
+% types of angles (stright, right, etc, )
+% supplementary/opposite angles
+.5 triangles.tex.
+% defintion
+% triangle congruence 
+% sss or sas
+% properties/types
+% triangle centers
+% triangle similarity
+% CPFPC
+.5 circles.tex.
+% idk
+.5 quadrilaterals.tex.
+% definitions
+% types
+% properties
+.4 type-theory.
+.5 wasd.
+.3 backmatter.
+.4 glossary.tex
+.4 index.tex
+.4 idk.tex
+.2 assets.
+.3 tikz.
+.4 idk.
+.2 meta.
+.3 documentation.
+.4 directorytree.tex
+.4 todo.tex
+.4 README.md
+.2 .gitignore.
+.2 axiomatic-geometry.code-workspace.
+}
+
+\end{document}

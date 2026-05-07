@@ -1,0 +1,10 @@
+PWD /home/daniel/Desktop/axiomatic-geometry/main
+INPUT /home/daniel/storage/texlive_data/2026/texmf.cnf
+INPUT /home/daniel/storage/texlive_data/2026/texmf-dist/web2c/texmf.cnf
+INPUT /home/daniel/storage/texlive_data/2026/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /home/daniel/Desktop/axiomatic-geometry/content/body/set-theory/linear-notions.tex
+OUTPUT linear-notions.log
+INPUT /home/daniel/storage/texlive_data/2026/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /home/daniel/storage/texlive_data/2026/texmf-dist/tex/latex/subfiles/subfiles.cls
+INPUT /home/daniel/storage/texlive_data/2026/texmf-dist/tex/latex/import/import.sty
+INPUT /home/daniel/storage/texlive_data/2026/texmf-dist/tex/latex/import/import.sty
