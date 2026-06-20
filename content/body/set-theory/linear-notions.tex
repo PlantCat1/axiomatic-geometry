@@ -4,6 +4,34 @@
 
 \chapter{Linear Notions}
 
+\begin{theorem}[Infinite interior points]
+  \label{lem:infinite-interior}
+  Let $A,C\in\mathbf{P}$ with $A\neq C$.  Then there exist infinitely many
+  points strictly between $A$ and $C$.
+\end{theorem}
+\begin{proof}
+    wasd
+\end{proof}
+
+\begin{theorem}[Infinite outward extension]
+  \label{lem:infinite-outward}
+  Let $A,B\in\mathbf{P}$ with $A\neq B$.  Then there exist infinitely many
+  points $C_1,C_2,C_3,\dots$ such that
+  \[
+  \mathcal{B}(A,B,C_1),\quad
+  \mathcal{B}(A,C_1,C_2),\quad
+  \mathcal{B}(A,C_2,C_3),\quad\dots
+  \]
+\end{theorem}
+\begin{proof}
+  wasd
+\end{proof}
+
+Together, these two lemmas show that from any segment $AB$ ($A\neq B$) we
+can generate infinitely many points in both directions along the line
+determined by $A$ and $B$.  Thus the plane $\mathcal{P}$ is necessarily
+infinite.
+
 \section{Defintion of Linear Notions}
 A segment is a subset of $\mathbf{P}$ defined as the union of two discint points and all points between them. Symbolically, that is
 \begin{definition}[Segment]
@@ -57,8 +85,8 @@ The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of t
     \[
     BA = \{B, A\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A)\}.
     \]
-    First, by the commutative property of sets, the endpoints are identical: $\{A, B\} = \{B, A\}$. 
-    
+    First, by the commutative property of sets, the endpoints are identical: $\{A, B\} = \{B, A\}$.
+
     Second, we examine the sets of interior points. By the \textbf{Symmetry of Betweenness}, the relation $\mathcal{B}(A, X, B)$ holds if and only if $\mathcal{B}(B, X, A)$ holds. Formally, this implies:
     \[
     \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\} = \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A)\}.
@@ -81,8 +109,8 @@ The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of t
     \[
     \overleftrightarrow{BA} = \{B, A\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, B, A) \lor \mathcal{B}(B, X, A) \lor \mathcal{B}(B, A, X)\}.
     \]
-    First, by the commutative property of sets, the endpoints are identical: $\{A, B\} = \{B, A\}$. 
-    
+    First, by the commutative property of sets, the endpoints are identical: $\{A, B\} = \{B, A\}$.
+
     Second, we demonstrate that the three cases of betweeness in $\overleftrightarrow{AB}$ are logically equivalent to those of $\overleftrightarrow{BA}$ using the by the \textbf{Symmetry of Betweenness}:
     \begin{itemize}
         \item $\{X \in \mathbf{P} \mid \mathcal{B}(X, A, B)\} = \{X \in \mathbf{P} \mid \mathcal{B}(B, A, X)\}$
@@ -110,7 +138,7 @@ The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of t
     \overrightarrow{BA} = \{B, A\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A) \lor \mathcal{B}(B, A, X)\}.
     \]
     By the \textbf{Outer Point Axiom}, there must exist a point $Y$ such that $\mathcal{B}(A, B, Y)$. By the defintion of $\overrightarrow{AB}$, it follows that $Y \in \overrightarrow{AB}$. Under our initial assumption that the rays, $Y$ must be an element of $\overrightarrow{BA}$.
-    
+
     By the Distinctness of Betweeness, the relation $\mathcal{B}(A, B, Y)$ implies that $A \neq Y$ and $B \neq Y$. Therefore, $Y \notin \{A, B\}$.
 
     Since $Y \in \overrightarrow{BA}$ but is not an endpoint, it must satisfy $\mathcal{B}(B, Y, A)$ or $\mathcal{B}(B, A, Y)$.
@@ -167,6 +195,22 @@ The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of t
     \]
     Thus, the union of the rays $\overleftarrow{AB}$ and $\overrightarrow{AB}$ is equal to the segment $AB$.
 \end{proof}
+
+\subsection{Midpoints and Bisectors}
+
+The \textit{midpoint} of a segment $AB$ is the point $M$ such that $AM \cong MB$ and $[AMB]$.
+
+\begin{axiom}[Midpoint Existence]
+    $\forall A,B\in\mathbf{P}, A\neq B \implies \exists M\in\mathbf{P}\colon (\mathcal{B}(A,M,B)) \land (AM \cong MB)$.
+\end{axiom}
+
+\begin{axiom}[Midpoint Uniqueness]
+    $\forall A,B\in\mathbf{P}, A\neq B \implies \forall M,N\in\mathbf{P}\colon (AM \cong MB) \land (\mathcal{B}(A,M,B)) \land (AN \cong NB) \land (\mathcal{B}(A,N,B)) \implies M = N.$
+\end{axiom}
+
+https://chat.deepseek.com/a/chat/s/c1efa70e-bf74-4e92-b967-4054f3472f26
+
+By removing betweenness as a criteria, we obtain the set of points $\{ X \mid AM \cong MB \}$. This set is a line that is perpendicular to the segment $AB$. Alternatively, we can define the perpendicular bisector as the line containing the midpoint $M$ of segment $AB$
 
 % lemma X pg. 4
 

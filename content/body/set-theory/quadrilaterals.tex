@@ -13,12 +13,454 @@ A \bf{quadrilateral} is defined as the union of four unique noncollinear segment
 \square ABCD \coloneqq AB \cup BC \cup CD \cup DA.
 \]
 
-Each line segment is called a \bf{side} of the quadrilateral, and each point $A, B, C, D$ is a \bf{vertex}
+Each segment is a \bf{side} of the quadrilateral, and each point $A, B, C, D$ is a \bf{vertex}. Sides that share a vertex, such as $AB$ and $BC$ are adjacent, otherwise they are called opposite, such as $AB$ and $CD$.
 
 \begin{theorem}
-    idk
+    Each side of $\square ABCD$ contains its two endpoints and infinitely many interior points (by density).
 \end{theorem}
 
+\begin{theorem}[Adjacent sides intersect only at the common vertex]
+    $AB \cap BC = \{B\}$, and similarly for the other three adjacent pairs.
+\end{theorem}
+\begin{proof}
+Suppose a point $X \neq B$ belonged to both $AB$ and $BC$. By the definitions of segment and betweenness, this forces $A, B, C$ to be collinear, contradicting the non-collinearity condition.
+\end{proof}
+
+\section{Diagonals}
+
+\begin{definition}
+    Given a quadrilateral $\square ABCD$, the segments $AC$ and $BD$ are the \textbf{diagonals} of $\square ABCD$.
+\end{definition}
+
+\section{Trapezoid/Trapezium}
+
+We define a trapezoid as a quadrilateral with at least one pair of parallel sides. (In some traditions, a trapezoid has exactly one pair; we choose the inclusive definition, which places parallelograms as a special case of trapezoids.)
+
+\begin{definition}
+    A convex quadrilateral $\square ABCD$ is a trapezoid if and only if
+    \[
+    \overleftrightarrow{AB} \parallel \overleftrightarrow{CD} \text{ or } \overleftrightarrow{BC} \parallel \overleftrightarrow{DA}.
+    \]
+\end{definition}
+
+\subsection{Diagonals}
+
+\subsection{Isosceles Trapezoid}
+
+A special case of the trapezoid occurs when the non-parallel sides (legs) are congruent. If this is the case, the quadrilateral is an \textbf{isosceles trapezoid}.
+
+\begin{definition}[Isosceles Trapezoid]
+    A trapezoid $\square ABCD$ with $\overleftrightarrow{AB} \parallel \overleftrightarrow{CD}$ a isosceles trapezoid if and only if
+    \[
+    AD \cong BC.
+    \]
+\end{definition}
+
+\chapter{Quadrilaterals}
+
+motivation
+
+\section{Definition}
+
+A \bf{quadrilateral} is defined as the union of four unique noncollinear segments as follows:
+\[
+\square ABCD \coloneqq AB \cup BC \cup CD \cup DA.
+\]
+
+Each segment is a \bf{side} of the quadrilateral, and each point $A, B, C, D$ is a \bf{vertex}. Sides that share a vertex, such as $AB$ and $BC$ are adjacent, otherwise they are called opposite, such as $AB$ and $CD$.
+
+\begin{theorem}
+    Each side of $\square ABCD$ contains its two endpoints and infinitely many interior points (by density).
+\end{theorem}
+
+\begin{theorem}[Adjacent sides intersect only at the common vertex]
+    $AB \cap BC = \{B\}$, and similarly for the other three adjacent pairs.
+\end{theorem}
+\begin{proof}
+Suppose a point $X \neq B$ belonged to both $AB$ and $BC$. By the definitions of segment and betweenness, this forces $A, B, C$ to be collinear, contradicting the non-collinearity condition.
+\end{proof}
+
+\section{Diagonals}
+
+\begin{definition}
+    Given a quadrilateral $\square ABCD$, the segments $AC$ and $BD$ are the \textbf{diagonals} of $\square ABCD$.
+\end{definition}
+
+\section{Trapezoid/Trapezium}
+
+We define a trapezoid as a quadrilateral with at least one pair of parallel sides. (In some traditions, a trapezoid has exactly one pair; we choose the inclusive definition, which places parallelograms as a special case of trapezoids.)
+
+\begin{definition}
+    A convex quadrilateral $\square ABCD$ is a trapezoid if and only if
+    \[
+    \overleftrightarrow{AB} \parallel \overleftrightarrow{CD} \text{ or } \overleftrightarrow{BC} \parallel \overleftrightarrow{DA}.
+    \]
+\end{definition}
+
+\subsection{Diagonal}
+
+\subsection{Isosceles Trapezoid}
+
+A special case of the trapezoid occurs when the non-parallel sides (legs) are congruent. If this is the case, the quadrilateral is an \textbf{isosceles trapezoid}.
+
+\begin{definition}[Isosceles Trapezoid]
+    A trapezoid $\square ABCD$ with $\overleftrightarrow{AB} \parallel \overleftrightarrow{CD}$ a isosceles trapezoid if and only if
+    \[
+    AD \cong BC.
+    \]
+\end{definition}
+
+\subsection{Right Trapezoid}
+\begin{definition}[Right trapezoid]
+    A quadrilateral $ABCD$ is a \emph{right trapezoid} if and only if it is a trapezoid and at least one of its interior angles is a right angle (if and only if at least one of its legs is perpendicular to the bases.)
+\end{definition}
+
+\section{parallelograms}
+
+\begin{theorem}
+    The diagonals of an isosceles trapezoid are congruent.
+\end{theorem}
+
+\begin{comment}
+    In an isosceles trapezoid, base angles on the same parallel side (the top base or the bottom base) are equal in measure. Additionally, any lower base angle and upper base angle on the same side are supplementary, meaning they add up to \(180^{\circ }\)
+\end{comment}
+
+\begin{theorem}[Diagonals of isosceles trapezoid are congruent]
+    Given and isosceles trapezoid $\square ABCD$ with $\overleftrightarrow{AB} \parallel \overleftrightarrow{CD}$, the diagonals are congruent:
+    \[
+    AC \cong BD.
+    \]
+\end{theorem}
+
+\section{Special Parallelograms}
+
+\subsection{Rectangles}
+
+\subsection{Rhombus}
+
+\begin{definition}[Rhombus is a parallelogram whose sides are all the same length]
+    A rhombus is a parallelogram whose four sides are congruent to one another.
+\end{definition}
+
+\begin{definition}[Rhombus is Equilateral but not Equiangular] me e9tuer
+    Rhombus is Equilateral but not Equiangular
+\end{definition}
+
+\subsection{Square}
+
+\section{Parallelograms}
+Parallelogram
+A quadrilateral is a \textbf{parallelogram} if both pairs of opposite sides are parallel.
+\begin{definition}[Parallelogram]
+    Let $A,B,C,D \in \mathbf{P}$ be four points satisfying the quadrilateral conditions. Then the quadrilateral $\square ABCD$ is a \textbf{parallelogram} if and only if
+    \[
+    \overleftrightarrow{AB} \parallel \overleftrightarrow{CD} \text{ and } \overleftrightarrow{BC} \parallel \overleftrightarrow{DA}.
+    \]
+\end{definition}
+
 i hate this project lmao ts straight retarded. idk what to do with it ever.
+
+\section{Special Parallelograms}
+
+\subsection{Rectangles}
+
+\subsection{Rhombus}
+
+\subsection{Square}
+
+\section{Kites}
+
+\begin{definition}[Kite]
+    A convex quadrilateral $\square ABCD$ is a \textbf{kite} if
+    \[
+    AB \cong AD \land CB \cong CD.
+    \]
+\end{definition}
+
+\begin{tikzpicture}[>=stealth, scale=1.2]
+
+  % Styles for tick marks
+  \tikzset{
+    ticks/.style={
+      postaction={decorate},
+      decoration={
+        markings,
+        mark=at position 0.5 with {\draw[thick] (0,-3pt) -- (0,3pt);}
+      }
+    },
+    double ticks/.style={
+      postaction={decorate},
+      decoration={
+        markings,
+        mark=at position 0.5 with {
+          \draw[thick] (-1.5pt,-3pt) -- (-1.5pt,3pt);
+          \draw[thick] (1.5pt,-3pt) -- (1.5pt,3pt);
+        }
+      }
+    }
+  }
+
+  % Coordinates for Kite ABCD
+  \coordinate (A) at (0,3);
+  \coordinate (B) at (-2,1);
+  \coordinate (D) at (2,1);
+  \coordinate (C) at (0,-2);
+  \coordinate (E) at (0,1); % Intersection of diagonals
+
+  % Fill the two congruent structural triangles to show the SSS symmetry
+  \fill[blue!5] (A) -- (B) -- (C) -- cycle;
+  \fill[orange!5] (A) -- (D) -- (C) -- cycle;
+
+  % Draw Diagonals first so they sit cleanly underneath points
+  \draw[thick, dashed, gray!80] (B) -- (D);
+  \draw[thick, gray!70!black] (A) -- (C);
+
+  % Draw Outer Sides with Congruence Ticks
+  \draw[ultra thick, ticks] (A) -- (B);
+  \draw[ultra thick, ticks] (A) -- (D);
+  \draw[ultra thick, double ticks] (C) -- (B);
+  \draw[ultra thick, double ticks] (C) -- (D);
+
+  % Perpendicular Right Angle Mark at E
+  \draw[thick] ($(E)+(0,0.25)$) -- ($(E)+(-0.25,0.25)$) -- ($(E)+(-0.25,0)$);
+
+  % Vertices
+  \fill (A) circle (2pt) node[above] {$A$};
+  \fill (B) circle (2pt) node[left] {$B$};
+  \fill (C) circle (2pt) node[below] {$C$};
+  \fill (D) circle (2pt) node[right] {$D$};
+  \fill (E) circle (1.5pt) node[below right, font=\footnotesize] {$E$};
+
+  % Symmetric Angle Markers
+  \draw pic[draw, angle radius=12pt] {angle = B--A--C};
+  \draw pic[draw, angle radius=14pt] {angle = B--A--C};
+
+  \draw pic[draw, angle radius=12pt] {angle = C--A--D};
+  \draw pic[draw, angle radius=14pt] {angle = C--A--D};
+
+  % Labels/Annotations
+  \node[text=blue!70!black, font=\small] at (-0.8, 0.5) {$\triangle ABC$};
+  \node[text=orange!70!black, font=\small] at (0.8, 0.5) {$\triangle ADC$};
+
+\end{tikzpicture}
+
+\begin{theorem}
+    In a kite $\square ABCD$,
+    \[
+    \angle BAC \cong \angle DAC \text{ and } \angle BCA \cong \angle DCA.
+    \]
+\end{theorem}
+\begin{proof}
+    Consider the triangles $\triangle ABC$ and $\triangle ADC$.
+    \begin{itemize}
+        \item $AB \cong AD$ by definition
+        \item $CB \cong CD$ by definition
+        \item $AC \cong AC$ by reflexivity of congruence
+    \end{itemize}
+    By the SSS triangle congruency criteria, $\triangle ABC \cong \triangle ADC$. Consequently, the corresponding angles are congruent:
+    \[
+    \angle BAC \cong \angle DAC \text{ and } \angle BCA \cong \angle DCA.
+    \]
+\end{proof}
+
+\begin{theorem}[The axis diagonal is the perpendicular bisector of the cross diagonal]
+    In a kite $\square ABCD$, let $E = AC \cup BD$. Then,
+    \[
+    AC \perp BD \text{ and } BE \cong ED.
+    \]
+\end{theorem}
+\begin{proof}
+    wasd
+\end{proof}
+
+% System B – Hybrid betweenness-congruence relation
+% Primitive: H(A,B,C,D,E) meaning AB ≅ CD and C-E-D (with E between C and D)
+\begin{axiom}[Segment Extension with Betweenness]
+  For any \(A,B,C,D\) there exists \(E\) such that \(H(A,B,C,E,D)\).
+\end{axiom}
+\begin{axiom}[Uniqueness of Extension]
+  If \(H(A,B,C,E,D)\) and \(H(A,B,C,E',D)\), then \(E = E'\).
+\end{axiom}
+\begin{axiom}[Symmetry of Congruence]
+  \(H(A,B,C,D,E) \implies H(C,D,A,E,B)\) % swapped?
+\end{axiom}
+% ... more axioms
+
+\begin{theorem}[Midpoint quadrilateral of a kite]
+    The quadrilateral formed by joining the midpoints of the sides of a kite is a rectangle.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\subsection{Right Kite}
+
+\section{Midpoint Theorems}
+
+\section{Cyclic Quadrilaterals}
+
+\section{Tangential Quadrilaterals}
+
+\section{Bicentric Quadrilaterals}
+
+\section{Other}
+11.15 Other Niche Quadrilaterals (Optional / Encyclopaedic)
+11.15.1 Equidiagonal quadrilaterals (diagonals equal in length).
+
+11.15.2 Orthodiagonal quadrilaterals (diagonals perpendicular).
+
+11.15.3 Harmonic quadrilaterals (vertices form a harmonic division on the circumcircle – requires cross-ratio, so likely beyond your current primitives, but can be mentioned).
+
+11.15.4 Quadrilaterals with special area properties (e.g., Brahmagupta’s formula for cyclic quadrilaterals).
+
+11.15.5 Complete quadrilaterals (the figure formed by four lines, six intersection points – a projective concept; may be out of scope).
+
+11.15.6 Miquel point of a complete quadrilateral (four circles concurrent).
+
+
+
+\end{document}
+
+\begin{theorem}[Base angles of isosceles triangle are congruent]
+    A
+
+\end{theorem}
+
+\subsection{Right Trapezoid}
+\begin{definition}[Right trapezoid]
+    A quadrilateral $ABCD$ is a \emph{right trapezoid} if and only if it is a trapezoid and at least one of its interior angles is a right angle (if and only if at least one of its legs is perpendicular to the bases.)
+\end{definition}
+
+\section{parallelograms}
+
+\begin{theorem}
+    The diagonals of an isosceles trapezoid are congruent.
+\end{theorem}
+
+\begin{comment}
+    In an isosceles trapezoid, base angles on the same parallel side (the top base or the bottom base) are equal in measure. Additionally, any lower base angle and upper base angle on the same side are supplementary, meaning they add up to \(180^{\circ }\)
+\end{comment}
+
+\begin{theorem}[Diagonals of isosceles trapezoid are congruent]
+    Given and isosceles trapezoid $\square ABCD$ with $\overleftrightarrow{AB} \parallel \overleftrightarrow{CD}$, the diagonals are congruent:
+    \[
+    AC \cong BD.
+    \]
+\end{theorem}
+
+
+
+\section{Special Parallelograms}
+
+\subsection{Rectangles}
+
+\subsection{Rhombus}
+
+\subsection{Square}
+
+\section{Kites}
+\section{Parallelograms}
+Parallelogram
+A quadrilateral is a \textbf{parallelogram} if both pairs of opposite sides are parallel.
+\begin{definition}[Parallelogram]
+    Let $A,B,C,D \in \mathbf{P}$ be four points satisfying the quadrilateral conditions. Then the quadrilateral $\square ABCD$ is a \textbf{parallelogram} if and only if
+    \[
+    \overleftrightarrow{AB} \parallel \overleftrightarrow{CD} \text{ and } \overleftrightarrow{BC} \parallel \overleftrightarrow{DA}.
+    \]
+\end{definition}
+
+i hate this project lmao ts straight retarded. idk what to do with it ever.
+
+\section{Special Parallelograms}
+
+\subsection{Rectangles}
+
+\subsection{Rhombus}
+
+\subsection{Square}
+
+\section{Kites}
+
+\begin{definition}[Kite]
+    A convex quadrilateral $\square ABCD$ is a \textbf{kite} if
+    \[
+    AB \cong AD \land CB \cong CD.
+    \]
+\end{definition}
+
+\begin{theorem}
+    In a kite $\square ABCD$,
+    \[
+    \angle BAC \cong \angle DAC \text{ and } \angle BCA \cong \angle DCA.
+    \]
+\end{theorem}
+\begin{proof}
+    Consider the triangles $\triangle ABC$ and $\triangle ADC$.
+    \begin{itemize}
+        \item $AB \cong AD$ by definition
+        \item $CB \cong CD$ by definition
+        \item $AC \cong AC$ by reflexivity of congruence
+    \end{itemize}
+    By the SSS triangle congruency criteria, $\triangle ABC \cong \triangle ADC$. Consequently, the corresponding angles are congruent:
+    \[
+    \angle BAC \cong \angle DAC \text{ and } \angle BCA \cong \angle DCA.
+    \]
+\end{proof}
+
+\begin{theorem}[The axis diagonal is the perpendicular bisector of the cross diagonal]
+    In a kite $\square ABCD$, let $E = AC \cup BD$. Then,
+    \[
+    AC \perp BD \text{ and } BE \cong ED.
+    \]
+\end{theorem}
+\begin{proof}
+    wasd
+\end{proof}
+
+% System B – Hybrid betweenness-congruence relation
+% Primitive: H(A,B,C,D,E) meaning AB ≅ CD and C-E-D (with E between C and D)
+\begin{axiom}[Segment Extension with Betweenness]
+  For any \(A,B,C,D\) there exists \(E\) such that \(H(A,B,C,E,D)\).
+\end{axiom}
+\begin{axiom}[Uniqueness of Extension]
+  If \(H(A,B,C,E,D)\) and \(H(A,B,C,E',D)\), then \(E = E'\).
+\end{axiom}
+\begin{axiom}[Symmetry of Congruence]
+  \(H(A,B,C,D,E) \implies H(C,D,A,E,B)\) % swapped?
+\end{axiom}
+% ... more axioms
+
+\begin{theorem}[Midpoint quadrilateral of a kite]
+    The quadrilateral formed by joining the midpoints of the sides of a kite is a rectangle.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\subsection{Right Kite}
+
+\section{Midpoint Theorems}
+
+\section{Cyclic Quadrilaterals}
+
+\section{Tangential Quadrilaterals}
+
+\section{Bicentric Quadrilaterals}
+
+\section{Other}
+11.15 Other Niche Quadrilaterals (Optional / Encyclopaedic)
+11.15.1 Equidiagonal quadrilaterals (diagonals equal in length).
+
+11.15.2 Orthodiagonal quadrilaterals (diagonals perpendicular).
+
+11.15.3 Harmonic quadrilaterals (vertices form a harmonic division on the circumcircle – requires cross-ratio, so likely beyond your current primitives, but can be mentioned).
+
+11.15.4 Quadrilaterals with special area properties (e.g., Brahmagupta’s formula for cyclic quadrilaterals).
+
+11.15.5 Complete quadrilaterals (the figure formed by four lines, six intersection points – a projective concept; may be out of scope).
+
+11.15.6 Miquel point of a complete quadrilateral (four circles concurrent).
+
+
 
 \end{document}
