@@ -1,0 +1,201 @@
+\documentclass[12pt]{article}
+
+% ---------- Packages ----------
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+% ---------- Theorem Styles ----------
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+
+% ---------- Custom Commands ----------
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\ray}[1]{\overrightarrow{#1}}
+\newcommand{\rel}[1]{\mathsf{B}(#1)}
+\newcommand{\congsegment}{\cong}
+
+\title{Chapter 9: Circles and Tangents}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+In the preceding chapters we developed the notions of betweenness, segment congruence, linear objects (segments, rays, lines), and the separation of the plane. To proceed to the theory of circles, perpendicularity, and tangents, the elementary axioms introduced so far are not sufficient. We must extend our formal system with additional axioms that govern the transport of segments, the addition of congruent segments, and the existence of perpendicular lines. We state these required axioms explicitly before proving any further theorems. All subsequent reasoning will rest solely on the primitive notions and the axioms (both old and new).
+
+%=====================================================================
+\section{Summary of Previously Required Axioms}
+\label{sec:old-axioms}
+%=====================================================================
+
+For completeness, we restate the axioms from earlier chapters that are used in the proofs below. Their original numbering is preserved so that \verb|\ref| calls in later proofs will resolve correctly.
+
+\begin{axiom}[Symmetry of Betweenness]
+\label{ax:bet-sym}
+$\forall A,B,C\in\mathcal{P},\; \rel{A,B,C} \implies \rel{C,B,A}$.
+\end{axiom}
+
+\begin{axiom}[Identity of Betweenness]
+\label{ax:bet-id}
+$\forall A,B\in\mathcal{P},\; \rel{A,B,A} \implies A = B$.
+\end{axiom}
+
+\begin{axiom}[Extensibility]
+\label{ax:bet-ext}
+$\forall A,B\in\mathcal{P},\; A\neq B \implies \exists C\in\mathcal{P}: \rel{A,B,C}$.
+\end{axiom}
+
+\begin{axiom}[Density]
+\label{ax:bet-dense}
+$\forall A,C\in\mathcal{P},\; A\neq C \implies \exists B\in\mathcal{P}: \rel{A,B,C}$.
+\end{axiom}
+
+\begin{axiom}[Transitivity of Betweenness]
+\label{ax:bet-trans}
+$\rel{A,B,C} \land \rel{B,C,D} \land B\neq C \implies \rel{A,B,D}$.
+\end{axiom}
+
+\begin{axiom}[Reflexivity of Congruence]
+\label{ax:cong-ref}
+$\forall A,B\in\mathcal{P},\; AB\congsegment AB$.
+\end{axiom}
+
+\begin{axiom}[Reversal of Congruence]
+\label{ax:cong-rev}
+$\forall A,B\in\mathcal{P},\; AB\congsegment BA$.
+\end{axiom}
+
+\begin{axiom}[Transitivity of Congruence]
+\label{ax:cong-trans}
+$\forall A,B,C,D,E,F\in\mathcal{P},\; (AB\congsegment CD \land AB\congsegment EF) \implies CD\congsegment EF$.
+\end{axiom}
+
+\begin{axiom}[Midpoint Existence]
+\label{ax:mid-ex}
+$\forall A,B\in\mathcal{P},\; A\neq B \implies \exists M\in\mathcal{P}: (\rel{A,M,B}) \land (AM\congsegment MB)$.
+\end{axiom}
+
+\begin{axiom}[Plane Separation]
+\label{ax:plane-sep}
+For every line $\ell\in\mathcal{L}$, there exist two sets $H_{\ell,1}, H_{\ell,2}\subset \mathcal{P}\setminus\ell$ such that:
+\begin{enumerate}
+\item $H_{\ell,1}\cup H_{\ell,2} = \mathcal{P}\setminus\ell \;\land\; H_{\ell,1}\cap H_{\ell,2} = \emptyset$;
+\item $\forall A,B\in\mathcal{P}\setminus\ell:\; \bigl(\exists X\in\ell,\; \rel{A,X,B}\bigr) \iff \{A,B\}\not\subset H_{\ell,1} \land \{A,B\}\not\subset H_{\ell,2}$.
+\end{enumerate}
+\end{axiom}
+
+%=====================================================================
+\section{Additional Axioms Required for Circles}
+\label{sec:new-axioms}
+%=====================================================================
+
+\begin{axiom}[Segment Transport]\label{ax:transport}
+Let $A,B,C,D\in\mathcal{P}$ with $C\neq D$. Let $\ray{CD}$ be the ray from $C$ through $D$.
+There exists a unique point $E\in\ray{CD}$ such that $CE\congsegment AB$.
+\end{axiom}
+
+\begin{axiom}[Segment Addition]\label{ax:add}
+If $\rel{A,B,C}$ and $\rel{D,E,F}$, and if $AB\congsegment DE$ and $BC\congsegment EF$, then $AC\congsegment DF$.
+\end{axiom}
+
+\begin{axiom}[Perpendicular Bisector]\label{ax:perpbis}
+For any two distinct points $A,B\in\mathcal{P}$ the set
+\[
+\ell = \{\,X\in\mathcal{P}\mid AX\congsegment BX\,\}
+\]
+is a line. It is called the \emph{perpendicular bisector} of $AB$. The line $\ell$ intersects the line $\overleftrightarrow{AB}$ at the midpoint of segment $AB$.
+\end{axiom}
+
+\begin{axiom}[Existence of the Perpendicular]\label{ax:perp}
+Let $\ell$ be a line and $O\notin\ell$ a point. There exists a unique point $F\in\ell$ such that the line $\overleftrightarrow{OF}$ is perpendicular to $\ell$ (see Definition~\ref{def:perp} below). The point $F$ is called the \emph{foot} of the perpendicular from $O$ to $\ell$.
+\end{axiom}
+
+%---------------------------------------------------------------------
+\subsection{Perpendicular Lines}
+%---------------------------------------------------------------------
+
+\begin{definition}[Perpendicular Lines]\label{def:perp}
+Two lines $l$ and $m$ are \emph{perpendicular}, denoted by $l\perp m$, if they intersect at a point $O$ and there exist points $A,B\in m$ such that $O$ is the midpoint of $AB$ and $l = \{\,X\in\mathcal{P}\mid AX\congsegment BX\,\}$. In other words, $l$ is the perpendicular bisector of a segment that lies on $m$ and has $O$ as its midpoint.
+\end{definition}
+
+From Axioms~\ref{ax:perpbis} and~\ref{ax:perp} together with the definition it follows that for any segment $AB$ the perpendicular bisector is indeed perpendicular to the line $\overleftrightarrow{AB}$. Also, through any point $O$ not on a line $\ell$ there is exactly one line through $O$ perpendicular to $\ell$.
+
+%=====================================================================
+\section{Circles}
+%=====================================================================
+
+\begin{definition}[Circle]\label{def:circle}
+Let $O\in\mathcal{P}$ be a point and let $OR$ be a segment. The \emph{circle} with center $O$ and radius segment $OR$ is the set
+\[
+\mathcal{C}(O,OR) \;:=\; \{\,P\in\mathcal{P} \mid OP \congsegment OR\,\}.
+\]
+A point $P$ is said to \emph{lie on the circle} if $P\in\mathcal{C}(O,OR)$.
+\end{definition}
+
+\begin{definition}[Chord, Diameter, Radius]\label{def:chord}
+Let $\mathcal{C}(O,OR)$ be a circle.
+\begin{itemize}
+\item A segment $AB$ is a \emph{chord} of the circle if both $A$ and $B$ lie on the circle and $A\neq B$.
+\item A chord $AB$ is a \emph{diameter} if the center $O$ lies on the segment $AB$ (i.e.\ $\rel{A,O,B}$).
+\item Any segment joining the center $O$ with a point on the circle is called a \emph{radius segment}. The segment $OR$ that defines the circle is one such radius segment; by transitivity all radius segments of the same circle are congruent to one another.
+\end{itemize}
+\end{definition}
+
+%=====================================================================
+\section{Properties of Chords}
+%=====================================================================
+
+\begin{theorem}[Center to Midpoint of a Chord]\label{thm:center-mid}
+If a line through the center $O$ of a circle $\mathcal{C}(O,OR)$ passes through the midpoint $M$ of a chord $AB$, then that line is perpendicular to the chord.
+\end{theorem}
+
+\begin{proof}
+Because $A$ and $B$ lie on the circle, we have $OA\congsegment OR$ and $OB\congsegment OR$; by symmetry and transitivity of congruence (Axiom~\ref{ax:cong-trans}), $OA\congsegment OB$. Hence $O$ belongs to the set $\{\,X\in\mathcal{P}\mid AX\congsegment BX\,\}$. By Axiom~\ref{ax:perpbis} this set is the perpendicular bisector of segment $AB$; call it $\ell$. The line $\ell$ contains both the midpoint $M$ of $AB$ and the center $O$. Therefore $\ell = \overleftrightarrow{OM}$ is, by definition, perpendicular to $\overleftrightarrow{AB}$. Thus the line through the center and the midpoint is perpendicular to the chord.
+\end{proof}
+
+\begin{theorem}[Perpendicular from Center to Chord Bisects It]\label{thm:perp-bisect}
+The line through the center $O$ of a circle perpendicular to a chord $AB$ bisects the chord.
+\end{theorem}
+
+\begin{proof}
+Let $m$ be the line through $O$ perpendicular to $\overleftrightarrow{AB}$. Because $A$ and $B$ lie on the circle, $OA\congsegment OB$, so $O$ lies on the perpendicular bisector of $AB$. By Axiom~\ref{ax:perpbis} the perpendicular bisector of $AB$ is unique and is a line perpendicular to $\overleftrightarrow{AB}$ passing through the midpoint of $AB$. The line $m$ also passes through $O$ and is perpendicular to $\overleftrightarrow{AB}$; therefore $m$ must coincide with the perpendicular bisector of $AB$. Consequently $m$ contains the midpoint of $AB$, i.e.\ the perpendicular from the center bisects the chord.
+\end{proof}
+
+%=====================================================================
+\section{Tangents}
+%=====================================================================
+
+\begin{definition}[Tangent Line]\label{def:tangent}
+A line $\ell$ is \emph{tangent} to a circle $\mathcal{C}(O,OR)$ if $\ell$ and the circle have exactly one point in common:
+\[
+\ell \cap \mathcal{C}(O,OR) = \{T\}.
+\]
+The point $T$ is called the \emph{point of tangency}.
+\end{definition}
+
+\begin{theorem}[Radius Perpendicular to Tangent]\label{thm:tangent-perp}
+If a line $\ell$ is tangent to the circle $\mathcal{C}(O,OR)$ at a point $T$, then the radius segment $OT$ is perpendicular to $\ell$:  $\overleftrightarrow{OT} \perp \ell$.
+\end{theorem}
+
+\begin{proof}
+We argue by contradiction. Suppose $\ell$ is tangent at $T$ but $\overleftrightarrow{OT}$ is \emph{not} perpendicular to $\ell$. The center $O$ cannot lie on $\ell$ because $T$ is on the circle, so $OT\congsegment OR$ while $OO$ (degenerate) is not congruent to $OR$. Hence $O\notin\ell$.
+
+Apply Axiom~\ref{ax:perp} (Existence of the Perpendicular) to the line $\ell$ and the point $O$. There exists a unique foot $F\in\ell$ such that $\overleftrightarrow{OF}\perp\ell$. Since $\overleftrightarrow{OT}$ is not perpendicular to $\ell$, the point $F$ is different from $T$.
+
+The line $\overleftrightarrow{OF}$ is perpendicular to $\ell$; by Definition~\ref{def:perp} this means that $\overleftrightarrow{OF}$ is the perpendicular bisector of some segment on $\ell$ whose midpoint is $F$. In particular, if we take the segment on $\ell$ whose endpoints are the two points obtained by laying off $FT$ on both sides of $F$, we can construct a point $T'$ on the ray opposite to $\ray{FT}$ such that $FT'\congsegment FT$ (using Segment Transport, Axiom~\ref{ax:transport}). Then $F$ is the midpoint of $TT'$ and, because $\overleftrightarrow{OF}$ is the perpendicular bisector of $TT'$, every point on $\overleftrightarrow{OF}$ is equidistant from $T$ and $T'$; in particular,
+\[
+OT \congsegment OT'.
+\]
+(The explicit verification uses the definition of perpendicular bisector: since $\overleftrightarrow{OF}$ is the perpendicular bisector of some segment with midpoint $F$ on $\ell$, and $TT'$ lies on $\ell$ with midpoint $F$, the line $\overleftrightarrow{OF}$ is also the perpendicular bisector of $TT'$; the uniqueness of the perpendicular bisector follows from Axiom~\ref{ax:perpbis}.)
+
+Now, $T$ lies on the circle, so $OT\congsegment OR$. By transitivity of congruence (Axiom~\ref{ax:cong-trans}), $OT'\congsegment OR$, which means $T'\in\mathcal{C}(O,OR)$. Moreover, $T'$ lies on $\ell$ by construction. Because $F\neq T$ and $FT'\congsegment FT$, we have $T'\neq T$. Thus $\ell$ contains the two distinct points $T$ and $T'$ of the circle, contradicting the hypothesis that $\ell$ is tangent (intersects the circle in exactly one point).
+
+The contradiction forces us to reject the assumption that $\overleftrightarrow{OT}$ is not perpendicular to $\ell$. Hence $\overleftrightarrow{OT}\perp\ell$, as required.
+\end{proof}
+
+The converse statement---if a line through a point of the circle is perpendicular to the radius, then it is tangent---can be proved similarly using the uniqueness of the perpendicular and the fact that any other point on the line would violate the definition of the perpendicular bisector. We omit the proof here as it follows the same pattern.
+
+\end{document}
