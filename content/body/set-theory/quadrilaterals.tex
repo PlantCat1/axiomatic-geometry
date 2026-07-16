@@ -15,15 +15,18 @@ A \bf{quadrilateral} is defined as the union of four unique noncollinear segment
 
 Each segment is a \bf{side} of the quadrilateral, and each point $A, B, C, D$ is a \bf{vertex}. Sides that share a vertex, such as $AB$ and $BC$ are adjacent, otherwise they are called opposite, such as $AB$ and $CD$.
 
-\begin{theorem}
+\begin{theorem}[Property of Quadrilateral Sides]
     Each side of $\square ABCD$ contains its two endpoints and infinitely many interior points (by density).
 \end{theorem}
+\begin{proof}
+    By the infinite interior points theorem, any given segment has infinitely many points strictly between its endpoints. Because the sides of a quadrilateral are defined as the segments comprising it, the above result applies to sides as well. Addionally, a given segment is defined to contain its endpoints. Similarily, this applies to the sides of a quadrilateral. Thus, this proves the result.
+\end{proof}
 
 \begin{theorem}[Adjacent sides intersect only at the common vertex]
     $AB \cap BC = \{B\}$, and similarly for the other three adjacent pairs.
 \end{theorem}
 \begin{proof}
-Suppose a point $X \neq B$ belonged to both $AB$ and $BC$. By the definitions of segment and betweenness, this forces $A, B, C$ to be collinear, contradicting the non-collinearity condition.
+    Suppose a point $X \neq B$ belonged to both $AB$ and $BC$. By the definitions of segment and betweenness, this forces $A, B, C$ to be collinear, contradicting the non-collinearity condition.
 \end{proof}
 
 \section{Diagonals}
@@ -61,24 +64,6 @@ A special case of the trapezoid occurs when the non-parallel sides (legs) are co
 motivation
 
 \section{Definition}
-
-A \bf{quadrilateral} is defined as the union of four unique noncollinear segments as follows:
-\[
-\square ABCD \coloneqq AB \cup BC \cup CD \cup DA.
-\]
-
-Each segment is a \bf{side} of the quadrilateral, and each point $A, B, C, D$ is a \bf{vertex}. Sides that share a vertex, such as $AB$ and $BC$ are adjacent, otherwise they are called opposite, such as $AB$ and $CD$.
-
-\begin{theorem}
-    Each side of $\square ABCD$ contains its two endpoints and infinitely many interior points (by density).
-\end{theorem}
-
-\begin{theorem}[Adjacent sides intersect only at the common vertex]
-    $AB \cap BC = \{B\}$, and similarly for the other three adjacent pairs.
-\end{theorem}
-\begin{proof}
-Suppose a point $X \neq B$ belonged to both $AB$ and $BC$. By the definitions of segment and betweenness, this forces $A, B, C$ to be collinear, contradicting the non-collinearity condition.
-\end{proof}
 
 \section{Diagonals}
 
@@ -273,19 +258,6 @@ i hate this project lmao ts straight retarded. idk what to do with it ever.
     wasd
 \end{proof}
 
-% System B – Hybrid betweenness-congruence relation
-% Primitive: H(A,B,C,D,E) meaning AB ≅ CD and C-E-D (with E between C and D)
-\begin{axiom}[Segment Extension with Betweenness]
-  For any \(A,B,C,D\) there exists \(E\) such that \(H(A,B,C,E,D)\).
-\end{axiom}
-\begin{axiom}[Uniqueness of Extension]
-  If \(H(A,B,C,E,D)\) and \(H(A,B,C,E',D)\), then \(E = E'\).
-\end{axiom}
-\begin{axiom}[Symmetry of Congruence]
-  \(H(A,B,C,D,E) \implies H(C,D,A,E,B)\) % swapped?
-\end{axiom}
-% ... more axioms
-
 \begin{theorem}[Midpoint quadrilateral of a kite]
     The quadrilateral formed by joining the midpoints of the sides of a kite is a rectangle.
 \end{theorem}
@@ -393,6 +365,7 @@ i hate this project lmao ts straight retarded. idk what to do with it ever.
     \[
     \angle BAC \cong \angle DAC \text{ and } \angle BCA \cong \angle DCA.
     \]
+Every element of L is a subset of P
 \end{theorem}
 \begin{proof}
     Consider the triangles $\triangle ABC$ and $\triangle ADC$.

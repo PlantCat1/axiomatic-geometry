@@ -14,6 +14,7 @@ For every line $l \in \mathbf{L}$, there exist two sets $H_{l,A}, H_{l,B} \subse
     \item $\forall A, B \in \mathbf{P} \setminus l \colon \left( \exists X \in l, \mathcal{B}(A, X, B) \iff \{A, B\} \not\subset H_{l1} \land \{A, B\} \not\subset H_{l2} \right)$.
 \end{enumerate}
 \end{axiom}
+
 explain the meaning-of-axioms-here
 
 \section{Same-Side Relation}
@@ -23,16 +24,6 @@ Specifically, we define $\mathcal{S}$ as a subset of the cartesian product $\mat
     Given a line $l \in \mathbf{L}$, any two points $A, B \in \mathbf{P} \setminus {l}$ are related by $\mathcal{S}$ if there does not exist a point $X \in l$ such that $\mathcal{B}(A, X, B)$. That is,
     \[
     \mathcal{S}(A, B, l) \iff \nexists X \in l \colon \mathcal{B}(A, X, B).
-    \]
-\end{definition}
-
-\section{Half-Planes}
-
-By grouping all points related to a reference point $A$ by $\mathcal{S}$, we construct the geometrical object known as the half-plane ($H_{l,A}$). This transition allows us to treat regions of the plane as sets that can be intersected to form more complex figures, such as angles and triangles.
-\begin{definition}[Half-Plane]
-    Let $l \in \mathbf{L}$ be a line and let $A \in \mathbf{P}$ be a reference point such that $A \notin l$. The half-plane detirmined by $l$ and $A$, denoted $H_{l,A}$, is the subset of the point-set consistening of all points on the same side of $l$ as $A$. That is,
-    \[
-    H_{l,A} \coloneqq \{X \in \mathbf{P} \setminus l \mid \mathcal{S}(A, X, l)\}.
     \]
 \end{definition}
 
@@ -80,6 +71,24 @@ This geometric object allows us to move beyond comparisons between single points
 
     We now have $A \in H_{l1}$ and $C \in H_{l1}$. By the inverse of PSA2, there does not exist a point $X \in l$ such that $\mathcal{B}(A, X, C)$. Thus, by definition, $A$ and $C$ must be related by the same-side relation. That is, $\mathcal{S}(A, C, l)$.
 \end{proof}
+
+With the reflexivity, symmetry, and transivity of the same-side relation demostrated, it follows by definition that it is an equivalence relation. This result may seem trivial, but it allows for application of known properties of equivlence relations. One such property is \textit{equivalence classes}, which are the subsets for which the relation holds. For our geometry, this partitions the plane into two \textit{half-planes}.
+
+\begin{theorem}[Partition Theorem]
+    Any pair of half-planes alongwith the line forming them together cover the plane.
+\end{theorem}
+\begin{proof}
+    First note that the relation form
+\end{proof}
+
+\section{Half-Planes}
+By grouping all points related to a reference point $A$ by $\mathcal{S}$, we construct the geometrical object known as the half-plane ($H_{l,A}$). This transition allows us to treat regions of the plane as sets that can be intersected to form more complex figures, such as angles and triangles.
+\begin{definition}[Half-Plane]
+    Let $l \in \mathbf{L}$ be a line and let $A \in \mathbf{P}$ be a reference point such that $A \notin l$. The half-plane detirmined by $l$ and $A$, denoted $H_{l,A}$, is the subset of the point-set consistening of all points on the same side of $l$ as $A$. That is,
+    \[
+    H_{l,A} \coloneqq \{X \in \mathbf{P} \setminus l \mid \mathcal{S}(A, X, l)\}.
+    \]
+\end{definition}
 
 randomideas:
 % reating the half-plane as an equivalence class is where your monograph moves from "drawing pictures" to "building a formal algebraic structure." In set theory, an equivalence relation partitions a set into disjoint "buckets." By proving $\mathcal{S}$ is an equivalence relation, you are proving that the plane is perfectly organized.Here is the deeper dive into the formal mechanics and the "special powers" this gives you.1. The Partition TheoremOnce you prove $\mathcal{S}$ is an Equivalence Relation (Reflexivity, Symmetry, Transitivity), you get a massive mathematical "freebie": the Fundamental Theorem of Equivalence Relations.This theorem states that the equivalence classes of $\mathcal{S}$ form a partition of the set.What this means for you: You don't have to assume the half-planes are disjoint or that they cover the whole plane. If you define them as equivalence classes, the logic of set theory forces them to be disjoint and exhaustive.2. Representative IndependenceBecause $H_{l,A}$ is an equivalence class, any point in the half-plane can serve as its "name" or representative.The "Special Power": If $B \in H_{l,A}$, then $H_{l,B} = H_{l,A}$.Application: In a proof, if you know a property holds for a point $A$, and you find another point $B$ on the same side, you can instantly swap them. This is vital for proving theorems about Angle Bisectors or Triangle Medians where you don't want to be tied to a specific coordinate.3. The Power of "Quotient Space"When you treat half-planes as equivalence classes, you are essentially looking at a Quotient Set:$$\mathbf{P} \setminus l \big/ \mathcal{S}$$The "special thing" here is that this quotient set has a cardinality of exactly 2.You can define a "Boolean" logic for the plane. A point is either in the class $[A]$ or it isn't.This allows you to define the Opposite-Side Relation ($\mathcal{O}$) simply as the negation of the equivalence relation:$$\mathcal{O}(A, B, l) \iff B \notin [A]_{\mathcal{S}}$$4. Defining "Interiors" via Set IntersectionsThis is the most practical "special thing" you can do. Once half-planes are formal sets (equivalence classes), you can use Boolean Algebra to define shapes.Interior of an Angle: Given $\angle ABC$, the interior is the intersection of two equivalence classes: $H_{\overleftrightarrow{AB}, C} \cap H_{\overleftrightarrow{BC}, A}$.Interior of a Triangle: The intersection of three equivalence classes.Without the equivalence class framework, "interior" is just a vague word. With it, the interior is a uniquely determined set of points that you can perform operations on (like finding the area or checking if a point is inside).

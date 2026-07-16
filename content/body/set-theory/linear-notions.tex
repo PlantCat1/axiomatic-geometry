@@ -4,6 +4,10 @@
 
 \chapter{Linear Notions}
 
+Now that the domain and relations of our plane have been fleshed-out, we set off to define objects present on the plane. That is, sets of points that meeting a defined criteria. Objects like this are called \textit{figures}, wherein a figure $F$ on the plane is a subset of the point set: $F \subseteq \mathbf{P}$. Note that a figure is a proper subset of $\mathbf{P}$, as the set containing no points is simply nothing, and the set containing all points is the domain itself.
+
+The most fundamental types of geometric figures are the segment, ray, and line - which we classifify as \textit{linear notions}. In this chaoter, we define all three linear notions, and detirmine their basic properties.
+
 \begin{theorem}[Infinite interior points]
   \label{lem:infinite-interior}
   Let $A,C\in\mathbf{P}$ with $A\neq C$.  Then there exist infinitely many
@@ -32,46 +36,19 @@ can generate infinitely many points in both directions along the line
 determined by $A$ and $B$.  Thus the plane $\mathcal{P}$ is necessarily
 infinite.
 
-\section{Defintion of Linear Notions}
-A segment is a subset of $\mathbf{P}$ defined as the union of two discint points and all points between them. Symbolically, that is
+\section{Segments}
+
+A \textit{line segment} $AB$ is the set containing $A$, $B$, and all points between $A$ and $B$. The points $A$ and $B$ are called the \textit{endpoints} of the segment. Symbolically, that is
 \begin{definition}[Segment]
     \[
-    \forall A, B \in \mathbf{P}, A \neq B \implies AB \coloneqq \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\}.
-    \]
-\end{definition}
-A ray pointing from point $A$ to a discint point $B$ is a subset of $\mathbf{P}$ denoted as $\overrightarrow{AB}$. It is defined as the union of $A$, $B$, all points between $A$ and $B$, and all points such that $B$ is between $A$ and that point, that is
-\begin{definition}[Ray]
-    \[
-    \forall A, B \in \mathbf{P}, A \neq B \implies \overrightarrow{AB} \coloneqq \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}.
-    \]
-\end{definition}
-The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of the points $A$, $B$, all points between $A$ and $B$, all points where $A$ is between it and $B$, and all points where $B$ is between it and $A$. That is,
-\begin{definition}[Line]
-    \[
-    \forall A, B \in \mathbf{P}, A \neq B \implies \overleftrightarrow{AB} \coloneqq \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, A, B) \lor \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}.
+    \forall A, B \in \mathbf{P}, A \neq B \implies AB \coloneqq \{A, B\} \cup \{ X \in \mathbf{P} \mid \mathcal{B}(A, X, B) \}.
     \]
 \end{definition}
 
-\section{Properties of Linear Notions}
-
-\begin{theorem}[Distinctness of Betweenness]
-    If $\mathcal{B}(A, B, X)$ holds, then $A$, $B$, and $X$ are three distinct points:
-    \[
-    \forall A, B, X \in \mathbf{P}, \mathcal{B}(A, B, X) \implies (A \neq B \land B \neq X \land A \neq X).
-    \]
-\end{theorem}
-\begin{proof}
-    We proceed by contradiction. Suppose $\mathcal{B}(A, B, X)$ holds.
-
-    First, assume $A = X$. Substituting $A$ for $X$ in our hypothesis, we obtain $\mathcal{B}(A, B, A)$, which  implies $A = B$. If $A = B$, then the relation $\mathcal{B}(A, B, X)$ is equivalent to $\mathcal{B}(B, A, X)$. However, by the Order of Betweeness, $\mathcal{B}(A, B, X) \implies \neg \mathcal{B}(B, A, X)$. Here, we reach a contradiction and conclude our hypothesis must be false and thus $A \neq X$.
-
-    Next, we test the assumption $A = B$. Under this assumption, we substite our hypothesis to obtain $\mathcal{B}(B, A, X)$. Similarly, the Order of Betweeness shows these cannot be simutanously true, and thus our assumption must be false, meaning $A \neq B$.
-
-    Finally, by the Transitivity of Equality, $B \neq X$. Thus proving the result.
-\end{proof}
+By intuition, we can see that the segment $AB$ is identical to the segment $BA$. Using properties of sets upon the endpoints amd the symmetry of betweeness \ref{ax-symmetry-of-betweenness} upon the point in between $X$ we can prove this result.
 
 \begin{theorem}[Segment Symmetry]
-    For any two points $A, B$, the segment $AB$ is equal to the segment $BA$.
+    For any two points $A, B$, the segment $AB$ is equal and equivalent to the segment $BA$.
     \[
     \forall A, B \in \mathbf{P}, AB = BA.
     \]
@@ -79,13 +56,13 @@ The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of t
 \begin{proof}
     By the definition of a line segment, we have:
     \[
-    AB = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\}
+    AB = \{A, B\} \cup \{ X \in \mathbf{P} \mid \mathcal{B}(A, X, B) \}
     \]
     and
     \[
-    BA = \{B, A\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A)\}.
+    BA = \{B, A\} \cup \{ X \in \mathbf{P} \mid \mathcal{B}(B, X, A) \}.
     \]
-    First, by the commutative property of sets, the endpoints are identical: $\{A, B\} = \{B, A\}$.
+    First, by the commutative property of sets, the endpoints are identical: $\{ A, B \} = \{ B, A \}$.
 
     Second, we examine the sets of interior points. By the \textbf{Symmetry of Betweenness}, the relation $\mathcal{B}(A, X, B)$ holds if and only if $\mathcal{B}(B, X, A)$ holds. Formally, this implies:
     \[
@@ -94,31 +71,16 @@ The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of t
     Since $AB$ and $BA$ are defined as the union of identical sets, they contain the same points. By the principle of extensionality in set theory, $AB = BA$.
 \end{proof}
 
-\begin{theorem}[Line Symmetry]
-    For any two distinct points $A$ and $B$, the line $\overleftrightarrow{AB}$ is equal to the segment $\overleftrightarrow{BA}$:
-    \[
-    \forall A, B \in \mathbf{P}, \overleftrightarrow{AB} = \overleftrightarrow{BA}.
-    \]
-\end{theorem}
-\begin{proof}
-    By the definition of a line, we have:
-    \[
-    \overleftrightarrow{AB} = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, A, B) \lor \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}
-    \]
-    and
-    \[
-    \overleftrightarrow{BA} = \{B, A\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, B, A) \lor \mathcal{B}(B, X, A) \lor \mathcal{B}(B, A, X)\}.
-    \]
-    First, by the commutative property of sets, the endpoints are identical: $\{A, B\} = \{B, A\}$.
+\section{Rays}
 
-    Second, we demonstrate that the three cases of betweeness in $\overleftrightarrow{AB}$ are logically equivalent to those of $\overleftrightarrow{BA}$ using the by the \textbf{Symmetry of Betweenness}:
-    \begin{itemize}
-        \item $\{X \in \mathbf{P} \mid \mathcal{B}(X, A, B)\} = \{X \in \mathbf{P} \mid \mathcal{B}(B, A, X)\}$
-        \item $\{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\} = \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A)\}$
-        \item $\{X \in \mathbf{P} \mid \mathcal{B}(A, B, X)\} = \{X \in \mathbf{P} \mid \mathcal{B}(X, B, A)\}$
-    \end{itemize}
-    Since each condition for membership in $\overleftrightarrow{AB}$ is logically equivalent to a condition for membership in $\overleftrightarrow{BA}$, the sets contain the same points. Thus, by the principle of extensionality, $\overleftrightarrow{AB} = \overleftrightarrow{BA}$
-\end{proof}
+We now consider the case where a line segment extends out in one direction. A ray pointing from point $A$ to a discint point $B$ is a subset of $\mathbf{P}$ denoted as $\overrightarrow{AB}$. It is defined as the union of $A$, $B$, all points between $A$ and $B$, and all points such that $B$ is between $A$ and that point, that is
+\begin{definition}[Ray]
+    \[
+    \forall A, B \in \mathbf{P}, A \neq B \implies \overrightarrow{AB} \coloneqq \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}.
+    \]
+\end{definition}
+
+The point the ray begins at is called the idk. Our notation will allow for the arrow to be facing left or right. However, it is preferred to have the arrow pointing right.
 
 \begin{theorem}[Ray Asymmetry]
     For any two distinct points $A, B \in \mathbf{P}$, the ray $\overrightarrow{AB}$ is not equal to the ray $\overleftarrow{BA}$:
@@ -196,38 +158,176 @@ The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of t
     Thus, the union of the rays $\overleftarrow{AB}$ and $\overrightarrow{AB}$ is equal to the segment $AB$.
 \end{proof}
 
-\subsection{Midpoints and Bisectors}
+\section{Lines}
 
-The \textit{midpoint} of a segment $AB$ is the point $M$ such that $AM \cong MB$ and $[AMB]$.
+The line $\overleftrightarrow{AB}$ is the subset of $\mathbf{P}$ consisting of the points $A$, $B$, all points between $A$ and $B$, all points where $A$ is between it and $B$, and all points where $B$ is between it and $A$. That is,
+\begin{definition}[Line]
+    \[
+    \forall A, B \in \mathbf{P}, A \neq B \implies \overleftrightarrow{AB} \coloneqq \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, A, B) \lor \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}.
+    \]
+\end{definition}
+
+\begin{theorem}[Line Symmetry]
+    For any two distinct points $A$ and $B$, the line $\overleftrightarrow{AB}$ is equal to the segment $\overleftrightarrow{BA}$:
+    \[
+    \forall A, B \in \mathbf{P}, \overleftrightarrow{AB} = \overleftrightarrow{BA}.
+    \]
+\end{theorem}
+\begin{proof}
+    By the definition of a line, we have:
+    \[
+    \overleftrightarrow{AB} = \{A, B\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, A, B) \lor \mathcal{B}(A, X, B) \lor \mathcal{B}(A, B, X)\}
+    \]
+    and
+    \[
+    \overleftrightarrow{BA} = \{B, A\} \cup \{X \in \mathbf{P} \mid \mathcal{B}(X, B, A) \lor \mathcal{B}(B, X, A) \lor \mathcal{B}(B, A, X)\}.
+    \]
+    First, by the commutative property of sets, the endpoints are identical: $\{A, B\} = \{B, A\}$.
+
+    Second, we demonstrate that the three cases of betweeness in $\overleftrightarrow{AB}$ are logically equivalent to those of $\overleftrightarrow{BA}$ using the by the \textbf{Symmetry of Betweenness}:
+    \begin{itemize}
+        \item $\{X \in \mathbf{P} \mid \mathcal{B}(X, A, B)\} = \{X \in \mathbf{P} \mid \mathcal{B}(B, A, X)\}$
+        \item $\{X \in \mathbf{P} \mid \mathcal{B}(A, X, B)\} = \{X \in \mathbf{P} \mid \mathcal{B}(B, X, A)\}$
+        \item $\{X \in \mathbf{P} \mid \mathcal{B}(A, B, X)\} = \{X \in \mathbf{P} \mid \mathcal{B}(X, B, A)\}$
+    \end{itemize}
+    Since each condition for membership in $\overleftrightarrow{AB}$ is logically equivalent to a condition for membership in $\overleftrightarrow{BA}$, the sets contain the same points. Thus, by the principle of extensionality, $\overleftrightarrow{AB} = \overleftrightarrow{BA}$
+\end{proof}
+
+\section{Midpoints and Bisectors}
+
+Intuitively, the midpoint of a segment is its “center” - the point that splits the segment into two equal halves. In real life, you find a midpoint when you fold a piece of paper so that the ends meet; the crease marks the exact middle. But in our geometry, which is built only on points, betweenness, and congruence, we need to be precise: a point is the midpoint of segment $AB$ exactly when it lies on the segment (so it is between $A$ and $B$) and the two subsegments it creates are congruent.
+
+THowever, we must ensure that such a point always exists and that there is only one. Geometry would be very strange if some segments could not be cut in half, or if a segment had two distinct “centers.” We introduce two axioms to gaurenteed this, but first present a formal definition of a midpoint.
+
+\begin{definition}[Midpoint]
+  For distinct points $A,B\in\mathbf{P}$, a point $M$ is a \textit{midpoint} of segment $AB$ if
+  \[
+  \mathcal{B}(A,M,B) \quad\text{and}\quad AM \cong MB .
+  \]
+\end{definition}
+
+Now, the axioms:
 
 \begin{axiom}[Midpoint Existence]
-    $\forall A,B\in\mathbf{P}, A\neq B \implies \exists M\in\mathbf{P}\colon (\mathcal{B}(A,M,B)) \land (AM \cong MB)$.
+  $\forall A,B\in\mathbf{P},\; A\neq B \implies \exists M\in\mathbf{P}:
+  \bigl(\mathcal{B}(A,M,B)\bigr) \land \bigl(AM \cong MB\bigr)$.
 \end{axiom}
 
 \begin{axiom}[Midpoint Uniqueness]
-    $\forall A,B\in\mathbf{P}, A\neq B \implies \forall M,N\in\mathbf{P}\colon (AM \cong MB) \land (\mathcal{B}(A,M,B)) \land (AN \cong NB) \land (\mathcal{B}(A,N,B)) \implies M = N.$
+  $\forall A,B\in\mathbf{P},\; A\neq B \implies
+  \forall M,N\in\mathbf{P}:
+  \bigl( AM \cong MB \land \mathcal{B}(A,M,B) \land AN \cong NB \land \mathcal{B}(A,N,B) \bigr)
+  \implies M = N$.
 \end{axiom}
 
-https://chat.deepseek.com/a/chat/s/c1efa70e-bf74-4e92-b967-4054f3472f26
+The first ensures that given two points $A$ and $B$, there exists  a point $M$ which is the midpoint of the segment $AB$. However, this alone allows for geometeries in which segments have multiple midpoints. Thus, we introduce an axiom ensuring the uniqueness of the midpoint stating that for segment $AB$,  if points $M$ and $N$ both meet the crieteria for being a midpoint, then it is nessessary that $M = N$. These axioms therefore require existence of a unique midpoint given any line segment.
 
-By removing betweenness as a criteria, we obtain the set of points $\{ X \mid AM \cong MB \}$. This set is a line that is perpendicular to the segment $AB$. Alternatively, we can define the perpendicular bisector as the line containing the midpoint $M$ of segment $AB$
+Now we ask: what happens if we drop the requirement that the point lies on the segment, but keep the requirement for congruence. That is, we detirmine all points $X$ such that $AX \cong XB$. In general, a line containing the midpoint of a segment is called a bisector of that segment. However, this set of points gets its own name.
+
+\begin{definition}[Perpendicular Bisector]
+  For distinct points $A,B\in\mathbf{P}$, the \textit{perpendicular bisector} of segment $AB$ is the set
+  \[
+  \ell_{AB} \coloneqq \{\, X\in\mathbf{P} \mid AX \cong XB\, \}.
+  \]
+\end{definition}
+
+The name is justified by two facts (which we will prove later):
+\begin{enumerate}
+  \item $\ell_{AB}$ is a line (i.e., there exist points $P,Q$ such that $\ell_{AB} = \overleftrightarrow{PQ}$);
+  \item $\ell_{AB}$ is perpendicular to the line $\overleftrightarrow{AB}$ and passes through the unique midpoint $M$ of $AB$.
+\end{enumerate}
+Notice that the midpoint $M$ itself belongs to $\ell_{AB}$ because $AM \cong MB$, and $M$ is the only point of $\ell_{AB}$ that lies on the segment $AB$ (the betweenness condition forces it to be between $A$ and $B$).  The rest of the perpendicular bisector lies off the segment, forming the two rays that are perpendicular to $AB$ at $M$.
+
+\textbf{Remark.}  Defining the perpendicular bisector as the equidistant set $\{\,X \mid AX \cong XB\,\}$ has the advantage of making no prior reference to perpendicularity or to the midpoint; both properties are then \emph{derived} from the congruence and betweenness axioms.  This is the standard treatment in absolute (neutral) geometry.
 
 % lemma X pg. 4
 
 \section{Parallelism}
-Two lines are parallel if they have no point in common. In our set-theoretic foundations, this is to mean that the intersection of the lines is the empty set.
-Because we define parallelism as a binary relation on lines, we first must have a set of all lines to work with. Thus, we let $\mathbf{P}$ be the domain called the set of all points and define $\mathbf{L}$ to be the collection of all subsets of $\mathbf{P}$ that consist of the line $\overleftarrow{AB}$ for a any given two points $A, B \in \mathbf{P}$. Formally, that is:
-\[
-\mathbf{L} \coloneqq \{l \subseteq \mathbf{P} \mid \exists A, B \in \mathbf{P} (A \neq B \land l = \overleftrightarrow{AB})\}.
-\]
-\begin{definition}[Parallel]
-    Given any lines $l, m \in \mathbf{L}$, we say $l$ is parallel to $m$ and write $l \parallel m$ if and only if they are the same same set of points or their set intersection is empty.
-    \[
-    \forall l, m \in \mathbf{L}, \, l \parallel m \iff (l = m) \lor (l \cap m = \emptyset).
-    \]
+
+Having introduced the fundamental linear figures—segments, rays, and lines—we now turn our attention to a relation that captures one of the most essential geometric intuitions: the notion that two lines ``point in the same direction'' and therefore never meet.  This relation is called \textit{parallelism}.  In a purely set‑theoretic framework, where lines are subsets of the point set \(\mathbf{P}\), the idea that two distinct lines have no point in common is naturally expressed as the emptiness of their intersection.  There is, however, a subtlety concerning the limiting case in which the two lines are actually the same set: should a line be considered parallel to itself?  Different axiomatic traditions answer this differently.  In the ordinary language of school geometry one often says that parallel lines are distinct lines that do not intersect, thereby excluding the reflexive case.  In a formal development, however, it is far more convenient to adopt the inclusive convention and allow a line to be parallel to itself.  Doing so makes parallelism an equivalence relation—a structure that will prove invaluable later when we classify lines by their \textit{direction}.  The inclusive definition is the one we adopt here; it simplifies the statement of theorems.
+
+Because parallelism is a relation that compares lines, we must first collect all lines into a single object that can serve as the domain of the relation.  Our definition of a line \(\overleftrightarrow{AB}\) yields a subset of \(\mathbf{P}\) for every pair of distinct points \(A,B\); the collection of all such subsets is therefore a well‑defined family of sets.  We denote this family by \(\mathbf{L}\) and make it the official set of lines of our plane.
+
+\begin{definition}[Set of all lines]
+  The set of all lines \(\mathbf{L}\) is defined as
+  \[
+  \mathbf{L} \coloneqq \{\, l \subseteq \mathbf{P} \mid
+  \exists\, A,B \in \mathbf{P},\; A \neq B \land l = \overleftrightarrow{AB} \,\}.
+  \]
 \end{definition}
 
-add more here
+\noindent
+Every element of \(\mathbf{L}\) is a subset of \(\mathbf{P}\) that arises from two distinct points by the construction of the line; conversely, every such construction yields a member of \(\mathbf{L}\).  This definition guarantees that we have a fixed, well‑defined set to talk about, a necessary prerequisite for building a binary relation.
+
+Now we are in a position to define parallelism itself.  The definition is a direct set‑theoretic translation of the geometric idea: two lines are parallel if they coincide or have no points in common.
+
+\begin{definition}[Parallel lines]
+  Let \(l,m\in\mathbf{L}\) be lines.  We say that \(l\) is \textit{parallel} to \(m\), and write \(l \parallel m\), if and only if
+  \[
+  l = m \quad\text{or}\quad l \cap m = \emptyset.
+  \]
+  Formally,
+  \[
+  \forall\, l,m\in\mathbf{L},\qquad
+  l \parallel m \;\iff\; (l = m) \;\lor\; (l \cap m = \emptyset).
+  \]
+\end{definition}
+
+The first disjunct, \(l = m\), may at first seem surprising if one is accustomed to thinking of parallel lines as distinct.  Its inclusion is deliberate.  By allowing a line to be parallel to itself we immediately obtain reflexivity (every line is parallel to itself), and together with the natural symmetry and a suitable parallel postulate we shall obtain transitivity, turning \(\parallel\) into an equivalence relation on \(\mathbf{L}\).  The equivalence classes of this relation are precisely the \textit{directions} in the plane—a concept that lies at the heart of many later arguments.  If one preferred the exclusive convention, one could define a separate relation “strictly parallel” and then prove that it differs from \(\parallel\) only by missing the diagonal of \(\mathbf{L}\times\mathbf{L}\); the two treatments are completely intertranslatable, and we find the inclusive one more elegant.
+
+In the absence of any further axioms, this definition tells us very little about how many parallels exist through a point not on a given line.  In fact, neutral (absolute) geometry guarantees the existence of \textit{at least one} such parallel, but leaves the number undetermined.  To obtain the familiar Euclidean picture, we shall later introduce an additional postulate—Playfair’s Axiom—that asserts the uniqueness of the parallel.  Until then, the definition stands as a purely combinatorial condition on subsets of the plane.
+
+\begin{theorem}[Reflexivity of Parallelism]\label{thm:par-refl}
+    For every line $l\in\mathbf{L}$, $l \parallel l$.
+\end{theorem}
+\begin{proof}
+    Immediate from the definition: take $l=m$ in the disjunct $l=m$.
+\end{proof}
+
+\begin{theorem}[Symmetry of Parallelism]\label{thm:par-sym}
+    For all lines $l,m\in\mathbf{L}$,
+    \[
+    l \parallel m \implies m \parallel l.
+    \]
+\end{theorem}
+\begin{proof}
+    Assume $l \parallel m$.  By definition, either $l=m$ or $l\cap m=\emptyset$. If $l=m$, then $m=l$ and $m\parallel l$ by the same disjunct. If $l\cap m=\emptyset$, then $m\cap l=\emptyset$ because intersection is commutative, so $m\parallel l$.
+\end{proof}
+
+\begin{axiom}[Playfair's Axiom (Parallel Postulate)]\label{ax:playfair}
+    For every line $l \in \mathbf{L}$ and every point $P \in \mathbf{P}$ with $P \notin l$,
+    there exists a unique line $m \in \mathbf{L}$ such that $P \in m$ and $m \parallel l$.
+    Formally,
+    \[
+    \forall l\in\mathbf{L},\; \forall P\in\mathbf{P}\setminus l,\;
+    \exists!\, m\in\mathbf{L}\; \bigl( P\in m \land m\parallel l \bigr).
+    \]
+\end{axiom}
+
+\begin{theorem}[Transitivity of Parallelism]\label{thm:par-trans}
+  For all lines $l,m,n\in\mathbf{L}$,
+  \[
+  (l \parallel m \;\land\; m \parallel n) \implies l \parallel n.
+  \]
+\end{theorem}
+\begin{proof}
+    Assume $l \parallel m$ and $m \parallel n$.
+    If $l=m$ or $m=n$, the conclusion follows trivially from the given parallelism.
+    Hence we may assume $l \neq m$ and $m \neq n$.
+    Then by definition $l \cap m = \emptyset$ and $m \cap n = \emptyset$.
+
+    We must show $l = n$ or $l \cap n = \emptyset$.
+    Suppose, for contradiction, that $l \neq n$ and $l \cap n \neq \emptyset$.
+    Then there exists a point $P \in l \cap n$.
+    Because $l \cap m = \emptyset$, we have $P \notin m$; similarly $P \notin m$ from
+    $m \cap n = \emptyset$.  Thus $P$ is a point not on $m$.
+    Both $l$ and $n$ pass through $P$ and are parallel to $m$:
+    $l \parallel m$ (given) and $n \parallel m$ (from $m \parallel n$ and symmetry).
+    Playfair's Axiom~\ref{ax:playfair} asserts that there is a *unique* line through $P$
+    parallel to $m$.  Consequently $l = n$, contradicting the assumption $l \neq n$.
+    Hence our supposition is false; we must have $l \cap n = \emptyset$, and therefore
+    $l \parallel n$.
+\end{proof}
 
 % Define a modern, clean UI color palette (Tailwind CSS inspired)
 \definecolor{UIBlueMain}{HTML}{2563EB}    % Blue 600

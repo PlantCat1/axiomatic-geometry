@@ -2,31 +2,62 @@
 
 \begin{document}
 
-https://chat.deepseek.com/a/chat/s/183b9ed0-a96a-4af8-af73-04d919b72803
-
 \chapter{Primitive Notions}
-For our axiomatic system, we adopt three primitive notions, consisting of one object and two relations, which together form a single structure. The first of these is the point, denoted by upper case latin letters, $A, B, C, \dots$. Each point is a member of the point-set $\mathbf{P}$, which is defined as $\mathbf{P} \coloneqq \{P \mid P \text{ is a point} \}$. This set is equipped with a ternary relation $\mathcal{B}$ (betweenness) and an quaternary relation $\cong$(congruence). Together, the domain and these two relations constitute the plane $\mathcal{P}$:
-\[ \mathcal{P} \coloneqq \langle \mathbf{P}, \mathcal{B}, \cong \rangle.\]
+
+To build a deductive theory of geometry we must first fix the very language in which the theory will be expressed. Like any mathematical discipline, geometry begins with a collection of \textit{primitive} concepts - terms that we do not define in terms of anything simpler but whose mutual relationships are governed by a system of axioms. From these axioms, we will derive theorems regarding the behavior and properties of these primative notions. For our axiomatic system we adopt three primitive notions: one kind of object, and two relations among those objects. Together they form a single structure that captures the intuitive idea of a flat plane, and will later be used to prove represents a flat plane given our chosen axioms.
+
+The first primitive notion is the \textbf{point}. Points are the individuals of our theory; they are the entities that occupy locations in the plane without themselves having parts or extension.
+
+On this set we impose two primitive relations. The first is a \textit{ternary} relation \(\mathcal{B}\) (``betweenness''), and the second is a \textit{quaternary} relation \(\cong\) (``congruence''). These three ingredients - the point-set and the two relations - are the sole raw material from which the whole theory will be constructed.
+
+The entire structure, consisting of the domain \(\mathbf{P}\) equipped with the relations \(\mathcal{B}\) and \(\cong\), is what we call the \textbf{plane} and denote by $\mathcal{P}$.
 
 \section{Plane}
 
-The plane is the structure consisting of the domain $\mathbf{P}$ together with the relations $\mathcal{B}$ and $\cong$.
+Before dissecting the individual notions, it is useful to definine the whole apparatus formallys.
 
-\begin{definition}[Plane]A plane is a structure
-    \[
-    \mathcal{P} \coloneqq \langle \mathbf{P}, \mathcal{B}, \cong \rangle.
-    \]
-    Where $\mathbf{P}$ is the domain.
+\begin{definition}[Plane]
+A \textit{plane} is a structure
+\[
+\mathcal{P} \coloneqq \langle \mathbf{P}, \mathcal{B}, \cong \rangle,
+\]b
+where \(\mathbf{P}\) is an arbitrary set, \(\mathcal{B}\) is a ternary relation on \(\mathbf{P}\), and \(\cong\) is a quaternary relation on \(\mathbf{P}\).
 \end{definition}
 
+\noindent
+Thus, saying ``let \(\mathcal{P}\) be a plane'' amounts to specifying a set of points together with a particular interpretation of betweenness and congruence satisfying the axioms we shall gradually introduce.
+The definition deliberately uses the neutral term ``a plane'' rather than ``the Euclidean plane'' because, until we make further choices, the axioms we give will be true in a broad class of geometries.
+
 \section{Points}
-The elements of the domain $\mathbf{P}$ are termed \textit{points} and denoted using capital italics such as $A$, $B$, $C$, $\dots$. At this foundational level, a point is defined not via decomposition into simpler parts, but solely by its membership in this set.
-characterization
-Intuitively, a point can be understood as a unique position on the plane. This corresponds to the Euclidean characterization of a point as "that which has no part". A point can be informally regarded as having no magnitude, length, width, or depth, and as being zero-dimensional. However, within the formal system, this physical characterization is set aside and a point is treated strictly as a primitive object with no further definition, thus, the characterization of these objects carries no weight in the formal deduction.
+
+The elements of the domain $\mathbf{P}$ are termed \textit{points}.
+We denote points by upper-case Latin letters: \(A, B, C, \dots\).
+All points are gathered into a set $\mathbf{P}$, called the \textit{point-set}, defined by
+\[
+\mathbf{P} \coloneqq \{\, P \mid P \text{ is a point} \,\}.
+\]
+Within the formal system, a point is an object whose only properties are those granted to it by the axioms governing \(\mathcal{B}\) and \(\cong\).
+There is no further internal structure: a point is defined not by decomposition into simpler parts, but solely by its membership in the set \(\mathbf{P}\).
+
+\begin{axiom}[Existence of Distinct Points]\label{ax:existence}
+    $\exists A,B \in \mathbf{P}, A \neq B.$
+\end{axiom}
+
+This axiom guards against the trivial one-point model satisfying every later axiom.
+
+\medskip
+\noindent\textbf{Informal characterization.}
+Although the formal theory treats points as primitives, it is helpful to keep in mind the intuitive picture that guides our choice of axioms.
+A point can be thought of as a unique, indivisible position in the plane.
+This corresponds to the classical Euclidean characterization of a point as ``that which has no part.''
+Informally, a point is regarded as having no magnitude - no length, width, or depth - and as being zero-dimensional.
+However, this physical description is only a heuristic.
+Within the deductive framework, the formal behaviour of points is entirely determined by the relations in which they stand, and the intuitive characterization carries no logical weight in the proofs that follow.
+We draw on the geometric imagery only to motivate the axioms and to make the abstract relations vivid.
 
 \section{Betweenness}
 
-Betweenness is a ternary relation on the set of all points, denoted by $\mathcal{B} \subseteq \mathbf{P}^3$. Given points $A$, $B$, and $C$, we write $\mathcal{B}(A,B,C)$ and read it as "$B$ lies between $A$ and $C$". 
+Betweenness is a ternary relation on the set of all points, denoted by $\mathcal{B} \subseteq \mathbf{P}^3$. Given points $A$, $B$, and $C$, we write $\mathcal{B}(A,B,C)$ and read it as "$B$ lies between $A$ and $C$".
 
 Unlike a set $\{A, B, C\}$, where the order of elements is immaterial, betweenness is defined over the cartesian product $\mathbf{P} \times \mathbf{P} \times \mathbf{P}$. Thus it depends on the order of the arguments. Formally,
 \[
@@ -40,7 +71,7 @@ We now x five axioms governing the behavior of $\mathcal{B}$.
 
 \subsection{Axioms of Betweenness}
 
-\begin{axiom}[Symmetry of Betweenness]
+\begin{axiom}[Symmetry of Betweenness]\label{ax-symmetry-of-betweenness}
     \[
     \forall A, B, C \in \mathbf{P}, \mathcal{B}(A, B, C) \implies \mathcal{B}(C, B, A).
     \]
@@ -48,8 +79,9 @@ We now x five axioms governing the behavior of $\mathcal{B}$.
 Betweenness is symmetric with respect to the outer points: if $B$ lies between $A$ and $C$, then it also lies between $C$ and $A$.  This reflects the fact that the segment $AC$ is the same as the segment $CA$. Left-to-right implication is used over a biconditional due to redundancy, as the right-to-left implication directly follows from this form of the axiom.
 
 \begin{axiom}[Order]
-  $\forall A,B,X\in\mathbf{P},\ \mathcal{B}(A,B,X)\ \implies\
-  \bigl(\,\neg\mathcal{B}(B,A,X)\ \land\ \neg\mathcal{B}(A,X,B)\,\bigr).$
+\[
+\forall A,B,X\in\mathbf{P},\ \mathcal{B}(A,B,X)\ \implies \bigl(\,\neg\mathcal{B}(B,A,X)\ \land\ \neg\mathcal{B}(A,X,B)\,\bigr).
+\]
 \end{axiom}
 If $B$ is between $A$ and $X$, then $A$ cannot be between $B$ and $X$, nor can $X$ be between $A$ and $B$. In other words, a point can serve as a ``middle'' in only one way: the triple $(A,B,X)$ determines a unique order along the line. Together with the Identity axiom, this implies that $\mathcal{B}(A,A,A)$ is impossible (otherwise, taking $A=B=X$, we would have both $\mathcal{B}(A,A,A)$ and its negation). Thus the relation is \emph{non-reflexive} in the strict sense: no point lies between itself and itself.
 
@@ -58,49 +90,58 @@ If $B$ is between $A$ and $X$, then $A$ cannot be between $B$ and $X$, nor can $
     \forall A, B \in \mathbf{P}, \mathcal{B}(A, B, A) \implies A = B.
     \]
 \end{axiom}
+\noindent
 This axiom says that if a point appears as the "middle" of a triple that begins and ends with the same point, then the two outer points must coincide. In particular, it forbids the possibility that a distinct point $B$ $B$ lies between $A$ and $A$; such a configuration would contradict the intuition that betweenness requires a genuine interval. Notice that the converse, $A=B\implies\mathcal{B}(A,A,A)$, is \emph{not} assumed; indeed the next axiom will exclude it.
 
 \begin{axiom}[Density]
-  $\forall A,C \in \mathbf{P}, A \neq C \implies
-  \exists B \in \mathbf{P} \colon \mathcal{B}(A,B,C).$
+\[
+\forall A,C \in \mathbf{P}, A \neq C \implies \exists B \in \mathbf{P} \colon \mathcal{B}(A,B,C).
+\]
 \end{axiom}
+\noindent
 Whenever two points are distinct, there exists a point strictly between
 them.  This captures the idea that segments are dense—between any two
 points one can always find a third.
 
-\begin{axiom}[Extensibility]
-  \[
-  \forall A,B\in\mathbf{P},\ A\neq B\ \implies\
-  \exists C\in\mathbf{P}\colon\ \mathcal{B}(A,B,C).
-  \]
+The plane must be infinite. Thus, we introduce an axiom that will later allow us to guarenteed the existence of infinite points along a line.
+\begin{axiom}[Extensibility]\label{ax-extensibility}
+    Given two points $A$ and $B$, there exists a point $C$ such that $\mathcal{B}(A,B,C)$
+    \[
+    \forall A,B \in \mathbf{P}, A \neq B \implies \exists C \in \mathbf{P} \colon \mathcal{B}(A,B,C).
+    \]
 \end{axiom}
-Given two distinct points, there is always a point beyond the second,
-so that the second lies between the first and the new point.  This
-guarantees that lines extend indefinitely.
 
 \begin{axiom}[Transitivity of Betweenness]
     $\mathcal{B}(A,B,C) \land \mathcal{B}(B,C,D) \land B \neq C \implies \mathcal{B}(A,B,D)$.
 \end{axiom}
-
 If $B$ lies between $A$ and $C$, and $C$ lies between $B$ and $D$ (with $B\neq C$), then $B$ lies between $A$ and $D$. This axiom allows us to chain betweenness relations along a line.
 
 These six axioms are mutually independent: no one can be derived from the others (as can be shown by standard model-theoretic arguments). Together with the congruence axioms to be introduced later, they will form the basis of our geometric theory.
 
-\begin{axiom}
-    $\exists A,B \in \mathbf{P}, A \neq B.$
-\end{axiom}
-
 \subsection{Immediate Consequences}
 
-\begin{theorem}
-  $\mathcal{B}(A,B,C) \iff \mathcal{B}(C,B,A)$ for all $A,B,C\in\mathbf{P}$.
+As is, the extensibility axiom allows only for extensibility to the right. To prove this consisely for both directions we introduce a lemma demostrating extensibility on the left side:
+\begin{theorem}[Left-Sided Extensibility]\label{thm:left-sided-extensibility}
+    For any two points $A$ and $B$, there exists $C$ such that $\mathcal{B}(C,B,A)$.
 \end{theorem}
 \begin{proof}
-  The forward direction is the axiom; the reverse follows by applying
-  the axiom with $A$ and $C$ exchanged.
+    From $A \neq B$, the extensibility axiom \ref{ax-extensibility} implies $\mathcal{B}(A,B,C)$. We then apply the symmetry of betweenness \ref{ax-symmetry-of-betweenness} to obtain $\mathcal{B}(C,B,A)$, thus arriving at the desired result.
+\end{proof}
+With this, we can now prove extensibility on both sides.
+\begin{theorem}[Dual-Sided Extensibility]
+    Given any two points $B$ and $C$, there exists points $A$ and $D$ such that $[ABCD]$.
+\end{theorem}
+\begin{proof}
+    Let $B, C \in \mathbf{P}$ be two points not equal to each other. From the extensibility axiom. there exists a point $D$ such that $[BCD]$. Similarily, from left-sided extensibility, there exists a point $A$ such that $[ABC]$. These results are sufficent to demostrate that $[ABCD]$, thus proving the theorem.
 \end{proof}
 
-https://chat.deepseek.com/a/chat/s/4e4b0278-f413-48ac-bc14-14be1cbd834e
+\begin{theorem}
+$\mathcal{B}(A,B,C) \iff \mathcal{B}(C,B,A)$ for all $A,B,C\in\mathbf{P}$.
+\end{theorem}
+\begin{proof}
+The forward direction is the axiom; the reverse follows by applying
+the axiom with $A$ and $C$ exchanged.
+\end{proof}
 
 Given two distinct points, there is always a point beyond the second,
 so that the second lies between the first and the new point.  This
@@ -130,6 +171,16 @@ form the basis of our geometric theory.
 \begin{proof}
     Suppose $\mathcal{B}(A,B,C)$ and $A = C$. Then, we have $\mathcal{B}(A,B,A)$, which by the identity of betweenness implies $A = B$. Substituting back gives $\mathcal{B}(A,A,A)$, which contradicts the irreflexivity of betweenness. Therefore $A \neq C$.
 \end{proof}
+
+\begin{theorem}[Irreflexivity of Betweenness for Distinct Points]
+    \[
+    A \neq B \implies \neg \mathcal{B}(A,A,B) \land \neg \mathcal{B}(A,B,B).
+    \]
+\end{theorem}
+\begin{proof}
+    If $\mathcal{B} (A,A,B)$, then by the order of betweeness,
+\end{proof}
+
 
 \begin{theorem}[Strict Betweenness]
     If $\mathcal{B}(A,B,C)$, then $A \neq B$ and $B \neq C$.
@@ -163,41 +214,7 @@ Similarly, if we assume $B = C$, then we have $\mathcal{B}(A,B,B) \implies \neg 
     $\mathcal{B}(B,A,C)$, $\mathcal{B}(A,C,B)$, $\mathcal{B}(B,C,A)$, $\mathcal{B}(C,A,B)$.
 \end{theorem}
 
-\subsection{Infinite Plane}
-
-\begin{theorem}[Outer Transitivity Variant]\label{lem:outer-trans}
-    For all $X,Y,Z,W \in \mathbf{P}$,
-    \[
-    \mathcal{B}(X,Y,Z) \land \mathcal{B}(X,Z,W) \land Y \neq Z
-    \implies \mathcal{B}(X,Y,W).
-    \]
-\end{theorem}
-\begin{proof}
-    Assume $\mathcal{B}(X,Y,Z)$, $\mathcal{B}(X,Z,W)$, and $Y \neq Z$.
-    From $\mathcal{B}(X,Y,Z)$ and $Y \neq Z$, Symmetry gives
-    $\mathcal{B}(Z,Y,X)$. From $\mathcal{B}(X,Z,W)$, Symmetry gives
-    $\mathcal{B}(W,Z,X)$. Now apply the Transitivity axiom
-    (Axiom~\ref{ax:Btrans}) with $(A,B,C,D) = (W,Z,Y,X)$:
-    \[
-    \mathcal{B}(W,Z,X) \land \mathcal{B}(Z,Y,X) \land Z \neq Y
-    \implies \mathcal{B}(W,Y,X).
-    \]
-    The condition $Z \neq Y$ holds by assumption. Applying Symmetry to
-    $\mathcal{B}(W,Y,X)$ yields $\mathcal{B}(X,Y,W)$, as required.
-\end{proof}
-
-\begin{theorem}[Infinite outward extension]
-    Let $A,B \in \mathbf{P}$ with $A \neq B$. Then there exist infinitely many points $C_1$, $C_2$, $C_3$, 
-    \dots such that
-    \[
-    \mathcal{B}(A,B,C_1), \mathcal{B}(A,C_1,C_2), \mathcal{B}(A,C_2,C_3), \dots.
-    \]
-\end{theorem}
-\begin{proof}
-    
-\end{proof}
-
-These theorems complete our baseline analysis of how the betweenness relation $\mathcal{B}$ operates locally on individual triples of points.However, proving that the plane $\mathcal{P}$ is structurally infinite—both in its internal density and its outward extension—requires the formal definitions of segments and lines. We defer these proofs to Chapter \ref{chap:linear notions}, where the infinite nature of the geometric line can be properly established.
+These theorems complete our baseline analysis of how the betweenness relation $\mathcal{B}$ operates locally on individual triples of points. However, proving that the plane $\mathcal{P}$ is structurally infinite—both in its internal density and its outward extension—requires the formal definitions of segments and lines. We defer these proofs to chapter blank, where the infinite nature of the geometric line can be properly established.
 
 \section{Congruence}
 Congruence is a quaternary relation on the set of all points denoted by $\cong \subseteq \mathbf{P}^4$. Rather than mapping individual points to one another, this relation establishes a geometric equivalence between two pairs of points. We write $\cong (A,B,C,D)$, to assert that the segment from point $A$ to point $B$ is congruent to the segment from point $C$ to point $D$. Formally:
@@ -209,81 +226,167 @@ To reflect this conceptually, we bundle the point pairs $(A,B)$ and $(C,D)$ into
 \[
 AB \cong CD \overset{\text{def}}{\iff} \cong(A,B,C,D)
 \]
-If the relation holds for the pairs $(A, B)$ and $(C, D)$, we write $(A, B) \cong (C, D)$, which is interpreted as the "distance" from $A$ to $B$ being equal to the distance from $C$ to $D$. 
+
+If the relation holds for the pairs $(A, B)$ and $(C, D)$, we write $(A, B) \cong (C, D)$, which is interpreted as the "distance" from $A$ to $B$ being equal to the distance from $C$ to $D$. The notation for the points will be reused to define segments. This choice was intentional, as the later informal usage of congruence upon segments is identical in nature to what is presented below.
 
 We now impose three axioms governing the behavior of $\cong$.
 
-\begin{axiom}[Reversal of Congruence]
+\subsection{Axioms of Congruence}
+
+\begin{axiom}[Reversal of Congruence]\label{ax:cong-reversal}
     \[
     \forall A, B \in \mathbf{P},\; AB \cong BA.
     \]
 \end{axiom}
 
-\begin{axiom}[Reflexivity of Congruence]
+\begin{axiom}[Transitivity of Congruence]\label{ax:cong-trans}
+    \[
+    \forall A, B, C, D, E, F \in \mathbf{P},\; \bigl(AB \cong CD \land AB \cong EF\bigr) \implies CD \cong EF.
+    \]
+\end{axiom}
+
+Transitivity (\autoref{ax:cong-trans}) is the formal way of saying that two segments congruent to the same segment are congruent to each other.
+
+With only Reversal and Transitivity, however, the axioms do not distinguish between genuine segments (whose endpoints are distinct) and degenerate ones (whose endpoints coincide). Model in which every point pairs is congruent to one another would strictly satifsy the above. In this universe, distinct points exist (\autoref{ax:existence}), but they are not separated. Such a ``zero-distance'' universe reduces the congruence relation to the universal relation and makes the geometry collapse: all points are at the same distance from one another, and no meaningful notion of length can be recovered.
+
+To exclude this degenerate model we introduce the following.
+
+\begin{axiom}[Identity of Congruence]\label{ax:cong-identity}
+    \[
+    \forall A, B, C \in \mathbf{P},\; AB \cong CC \implies A = B.
+    \]
+\end{axiom}
+
+\noindent
+In words: if a segment is congruent to a degenerate segment, then its endpoints must coincide. Equivalently, a non-degenerate segment ($A \neq B$) can never be congruent to a degenerate one ($CC$). Intuivitely, this means the "distance" between distinct points is never zero, --- a requirement that, in a metric geometry, would be imposed by the condition $d(A,B)=0 \iff A=B$.
+
+Note that the axiom does not guarenteed the existence of distinct points --- that guarantee was already given by the domain axiom \autoref{ax:existence}. However, these axioms together guarantee that the plane contains at least two points \emph{and} that distinct points are geometrically distinct.
+
+Once distinct, genuinely separated points exist, \autoref{ax:density} populates the segment between them with infinitely many intermediate points, ensuring that the line is not a discrete set of isolated locations.
+
+\subsection{Congruence as an Equivalence Relation}
+
+An equivalence relation is characterized by three properties: reflexivity, symmetry, and transitivity. The axioms adopted here for $\cong$ assert neither reflexivity nor the general symmetry and transitivity required of an equivalence relation directly; Transitivity, in particular, is stated in a shared-first-argument form rather than the familiar chain form. The remainder of this subsection shows that Reversal and Transitivity nonetheless force Reflexivity, Reflexivity together with Transitivity forces Symmetry, and Symmetry together with Transitivity forces the familiar chain form of transitivity, so nothing further needs to be assumed.
+
+\begin{theorem}[Reflexivity of Congruence]
     \[
     \forall A, B \in \mathbf{P},\; AB \cong AB.
     \]
-\end{axiom}
-
-\begin{axiom}[Transitivity of Congruence]
+\end{theorem}
+\begin{proof}
+    From reversal (\autoref{ax:cong-reversal}), we have $AB \cong BA$. Through replacement of variables we also have $BA \cong AB$. We now instantiate transivity (\autoref{ax:cong-trans}) with $AB \cong BA$ used twice:
     \[
-    \forall A, B, C, D, E, F \in \mathbf{P},\; (AB \cong CD \land AB \cong EF) \implies CD \cong EF.
+    \bigl(AB \cong BA \text{ and } AB \cong BA\bigr) \implies BA \cong BA.
     \]
-\end{axiom}
+    Next, we apply transivity again as follows:
+    \[
+    \bigl(BA \cong AB \text{ and } BA \cong AB\bigr) \implies AB \cong AB,
+    \]
+    which completes the proof.
+\end{proof}
 
-\begin{theorem}[Symmetry of Congruence]
+% add remark regarding the choice in reflexivity as a theorem nt axiom.
+
+With reflexivity established, the other expected properties follow rapidly.
+
+\begin{theorem}[Symmetry of Congruence]\label{thm:symmetry-cong}
     If $AB \cong CD$, then $CD \cong AB$.
 \end{theorem}
 \begin{proof}
-    We are given $AB \cong CD$. From the reflexivity of congruence axiom we also have $AB \cong AB$. Applying these two congruences to the transitivity axiom gives the antecedent
+    We are given $AB \cong CD$. From the reflexivity axiom we also have $AB \cong AB$. Applying these two congruences to the transitivity axiom gives the antecedent
     \[
     AB \cong CD \land AB \cong AB,
     \]
     which implies $CD \cong AB$.
 \end{proof}
 
+\begin{theorem}[Full-Transitivity of Congruence]
+    If $AB \cong CD$ and $CD \cong EF$, then $AB \cong EF$.
+\end{theorem}
+\begin{proof}
+    By hypothesis, $AB \cong CD$. Applying Symmetry (\autoref{thm:symmetry-cong}) to this gives
+    \[
+    CD \cong AB.
+    \]
+    Together with the second hypothesis $CD \cong EF$, we obtain the conjunction
+    \[
+    CD \cong AB \;\land\; CD \cong EF.
+    \]
+    This is precisely an instance of the Transitivity axiom (\autoref{ax:cong-trans}), instantiated with $CD$ in the shared first-argument position of both conjuncts. The axiom therefore yields
+    \[
+    AB \cong EF,
+    \]
+    as required.
+\end{proof}
+
+With these results, $\cong$ is established as an equivalence relation on ordered pairs of points: reflexive and symmetric by theorem, and transitive in the familiar chain sense by Full-Transitivity.
+Consequently, $\cong$ partitions the set of all ordered point pairs into disjoint equivalence classes, each consisting of all segments congruent to one another --- the geometric counterpart of segments of equal length. This is the extent of what an equivalence relation alone provides: it identifies which segments0 share a length, but supplies no order between distinct classes and no arithmetic operation upon them. Such structure requires the interaction of $\cong$ with $\mathcal{B}$ and is developed in a later section.
+
+\subsection{Endpoint-Reversal Symmetries}
+
+The equivalence-relation properties established above govern the behavior of $\cong$ across distinct pairs of points; they say nothing about the effect of reordering the two endpoints \emph{within} a single pair. This subsection establishes that $\cong$ is in fact invariant under such reordering, in every combination.
+
 \begin{theorem}[Left-Reversal of Congruence]
     If $AB \cong CD$, then $BA \cong CD$.
 \end{theorem}
 \begin{proof}
-    We are given $AB \cong CD$. From the reversal of congruence, we also have $AB \cong BA$. Applying transitivity to the conjunction
+    We are given $AB \cong CD$. From the reversal axiom, we also have $AB \cong BA$. Applying transitivity to the conjunction
     \[
     AB \cong BA \land AB \cong CD
     \]
     yields $BA \cong CD$.
 \end{proof}
 
-\begin{theorem}[Right-Reversal of Congruence]
+\begin{theorem}[Right-Reversal of Congruence]\label{thm:right-reversal}
     If $AB \cong CD$, then $AB \cong DC$.
 \end{theorem}
 \begin{proof}
-    We are given $AB \cong CD$. From the reversal of congruence, we have $CD \cong DC$, and by the symmetry of congruence we have $CD \cong AB$. Applying transitivity to
+    We are given $AB \cong CD$. From the reversal axiom applied to the pair $(C,D)$, we have $CD \cong DC$. By symmetry (\autoref{thm:symmetry-cong}) applied to the hypothesis, we also have $CD \cong AB$. Applying transitivity to the conjunction
     \[
     CD \cong AB \land CD \cong DC,
     \]
     yields $AB \cong DC$.
 \end{proof}
 
-\begin{theorem}[Full-Reversal of Congruence]
+\begin{theorem}[Full-Reversal of Congruence]\label{thm:full-reversal}
     If $AB \cong CD$, then $BA \cong DC$.
 \end{theorem}
 \begin{proof}
-    From $AB \cong CD$, left-reversal gives $BA \cong CD$. Applying right-reversal to $BA \cong CD$ yields $BA \cong DC$.
+    We are given $AB \cong CD$. From the reversal axiom, we know that $AB \cong BA$. By Right-Reversal (\autoref{thm:right-reversal}) applied to the hypothesis, we also have $AB \cong DC$. Applying transitivity to
+    \[
+    AB \cong BA \land AB \cong DC,
+    \]
+    yields $BA \cong DC$.
 \end{proof}
 
-\begin{theorem}[Full-Transitivity of Congruence]
-    If $AB \cong CD$ and $CD \cong EF$, then $AB \cong EF$.
+The previous three theorems can be packaged into a single convenient equivalence,
+establishing that segment congruence is entirely indifferent to the order of the endpointsof either segment.
+
+\begin{theorem}[Endpoint-Swap Invariance]
+\label{thm:swap-inv}
+For any points $A,B,C,D$,
+\[
+AB \cong CD \;\iff\; BA \cong DC \;\iff\; AB \cong DC \;\iff\; BA \cong CD .
+\]
 \end{theorem}
 \begin{proof}
-    We first apply symmetry to the first premise, giving $CD \cong AB$.  Then, we apply this result along with the second premise to the  transitivity axiom, giving the antecedent
-    \[
-    CD \cong AB \land CD \cong EF.
-    \]
-    This implies $AB \cong EF$, thus proving the result.
+    The forward implications have all been proved:
+    \begin{itemize}
+        \item $AB \cong CD \Rightarrow BA \cong DC$ (Full-Reversal)
+        \item $BA \cong DC \Rightarrow AB \cong DC$ (apply Left‑Reversal to the pair $(B,A)$)
+        \item $AB \cong DC \Rightarrow BA \cong CD$ (Right‑Reversal followed by Left‑Reversal)
+        \item $BA \cong CD \Rightarrow AB \cong CD$ (Left‑Reversal on $(B,A)$)
+    \end{itemize}
+    The reverse directions follow by the same theorems applied in the opposite order, completing the circle of equivalences.
 \end{proof}
 
-With these results, we have demonstrated that $\cong$ is an equivalence relation on ordered pairs of points, as it is reflexive (by axiom) and symmetric (by theorem), and fully transitive (by theorem).
+\section{Interaction of Betweenness and Congruence}
 
-Because $\cong$ is an equivalence relation, it partitions the set of all ordered point pairs into disjoint equivalence classes. Each class consists of all segments that are congruent to one another, which in geometric terms corresponds to the set of all segments having the same length. This formally captures the intuitive idea that congruence of segments is equality of distance.
+\begin{axiom}[Segment Construction]\label{ax:seg-construction}
+    \[
+    \forall Q, X, A, B \in \mathbf{P},\; Q \neq X \implies
+    \exists Y \in \mathbf{P} \colon \mathcal{B}(Q,X,Y) \land XY \cong AB.
+    \]
+\end{axiom}
 
 \end{document}
