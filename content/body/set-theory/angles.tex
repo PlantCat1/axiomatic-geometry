@@ -4,4 +4,105 @@
 
 \chapter{Angles}
 
+As we advance in our geometric theory, we turn our attention to figures formed by pairs of rays. Just as segments and lines are fundamental objects built from points and betweenness, angles emerge naturally from the interplay of rays and the plane's partition structure. In this chapter, we define angles as geometric figures rather than measurements, maintaining our axiomatic approach that avoids distance metrics and numeric measure.
+
+\section{Angles as Geometric Figures}
+
+\begin{definition}[Angle]
+An \textbf{angle} is the union of two rays $\overrightarrow{BA}$ and $\overrightarrow{BC}$ that share a common endpoint (vertex) $B$. We denote this angle by $\angle ABC$, formally:
+\[
+\angle ABC \coloneqq \overrightarrow{BA} \cup \overrightarrow{BC}.
+\]
+\end{definition}
+
+As with segments and rays, angles may be degenerate. When the points $A$, $B$, and $C$ are collinear, we obtain special cases worth naming explicitly. If $\mathcal{B}(A, B, C)$---that is, $B$ lies between $A$ and $C$---then the angle $\angle ABC$ is called a \textbf{straight angle}. If $A$, $B$, $C$ are collinear but $B$ does not lie between them, the angle is \textbf{null} or \textbf{zero}. These degenerate cases, like the zero-distance universe we excluded via the Identity of Congruence, represent boundary cases integral to the theory. They are not pathologies to suppress but consequences of our framework worth understanding.
+
+\section{Interior and Exterior of an Angle}
+
+With the definition of angles in place, we now partition the plane using them, much as we partitioned the plane using lines.
+
+\begin{definition}[Interior of an Angle]
+For any three non-collinear points $A, B, C \in \mathbf{P}$, the \textbf{interior} of $\angle ABC$ is the set:
+\[
+\text{Int}(\angle ABC) \coloneqq \{ P \in \mathbf{P} \mid S(P, A, \overleftrightarrow{BC}) \land S(P, C, \overleftrightarrow{BA}) \}.
+\]
+Equivalently, this is the intersection of two half-planes:
+\[
+\text{Int}(\angle ABC) \coloneqq H_{\overleftrightarrow{BC}, A} \cap H_{\overleftrightarrow{BA}, C}.
+\]
+\end{definition}
+
+This definition employs the same-side relation $S$ and half-planes, which we developed in Chapter 3 via Plane Separation (Axiom 15). The interior consists precisely of those points that lie on the $A$-side of line $\overleftrightarrow{BC}$ \emph{and} on the $C$-side of line $\overleftrightarrow{BA}$ simultaneously.
+
+\begin{definition}[Exterior of an Angle]
+For any three non-collinear points $A, B, C \in \mathbf{P}$, the \textbf{exterior} of $\angle ABC$ is the complement of $\text{Int}(\angle ABC) \cup \angle ABC$ within the plane:
+\[
+\text{Ext}(\angle ABC) \coloneqq \mathbf{P} \setminus \bigl(\text{Int}(\angle ABC) \cup \angle ABC\bigr).
+\]
+\end{definition}
+
+With these definitions, we can now prove that angles partition the plane into three disjoint regions.
+
+\begin{theorem}[Partition of the Plane by a Non-Straight Angle]
+For any three non-collinear points $A, B, C \in \mathbf{P}$, the sets $\text{Int}(\angle ABC)$, $\angle ABC$, and $\text{Ext}(\angle ABC)$ partition the plane $\mathbf{P}$. That is:
+\[
+\text{Int}(\angle ABC) \cup \angle ABC \cup \text{Ext}(\angle ABC) = \mathbf{P}
+\quad\text{and these three sets are pairwise disjoint.}
+\]
+\end{theorem}
+
+\begin{proof}
+By definition, $\text{Ext}(\angle ABC) = \mathbf{P} \setminus \bigl(\text{Int}(\angle ABC) \cup \angle ABC\bigr)$. Thus, by set theory, every point $P \in \mathbf{P}$ lies in exactly one of the three sets. The disjointness is immediate: no point can simultaneously lie in the interior and on the angle itself (since the interior is defined to exclude the rays), and the exterior is defined as the complement of their union.
+\end{proof}
+
+\noindent\textbf{Remark on straight angles.} For a straight angle $\angle ABC$ where $\mathcal{B}(A, B, C)$, the interior degenerates to the empty set, since no point can simultaneously satisfy $S(P, A, \overleftrightarrow{BC})$ and $S(P, C, \overleftrightarrow{BA})$ when $A$, $B$, $C$ are collinear with $B$ between. The exterior then becomes $\mathbf{P}$ minus the line $\overleftrightarrow{AC}$, and the three-way partition property fails. This is a natural degeneracy, parallel to how the straight angle itself represents a limiting case of the angle concept.
+
+\section{Ray Betweenness}
+
+In our exploration of geometric figures, we extend the concept of betweenness from points to rays. Specifically, we define a ray $\overrightarrow{OC}$ as lying ``between'' rays $\overrightarrow{OA}$ and $\overrightarrow{OB}$ if point $C$ is in the interior of angle $\angle AOB$, denoted as $C \in \text{Int}(\angle AOB)$. This definition serves as a rotational analogue to the betweenness relation for points, $\mathcal{B}(A,B,C)$.
+
+\begin{theorem}[Ray-Betweenness Asymmetry]
+If ray $\overrightarrow{OC}$ lies between rays $\overrightarrow{OA}$ and $\overrightarrow{OB}$, then it is not possible for $\overrightarrow{OC}$ to be equal to either $\overrightarrow{OA}$ or $\overrightarrow{OB}$.
+\end{theorem}
+
+\begin{proof}
+Assume for contradiction that $\overrightarrow{OC} = \overrightarrow{OA}$. Then $C$ would lie on ray $\overrightarrow{OA}$, contradicting the fact that $C \in \text{Int}(\angle AOB)$. Similarly, if $\overrightarrow{OC} = \overrightarrow{OB}$, then $C$ would lie on ray $\overrightarrow{OB}$, again a contradiction. Thus, rays cannot be equal when one is between the other two.
+\end{proof}
+
+\begin{theorem}[Basic Ordering Consequence]
+If ray $\overrightarrow{OC}$ lies between rays $\overrightarrow{OA}$ and $\overrightarrow{OB}$, then either $\overrightarrow{OA}$ and $\overrightarrow{OB}$ are opposite rays or they form a non-degenerate angle.
+\end{theorem}
+
+\begin{proof}
+By definition, $C \in \text{Int}(\angle AOB)$ implies that $\overrightarrow{OA}$ and $\overrightarrow{OB}$ cannot be collinear unless $\overrightarrow{OC}$ is undefined (i.e., the angle is degenerate). If they are not opposite rays, then $\angle AOB$ is non-degenerate, satisfying the condition.
+\end{proof}
+
+\section{Angle Congruence}
+
+We define two angles $\angle ABC$ and $\angle DEF$ to be congruent, denoted as $\angle ABC \cong \angle DEF$, if for every point $A'$ on ray $\overrightarrow{BA}$ and $C'$ on ray $\overrightarrow{BC}$ such that $\overline{BA'} \cong \overline{ED}$ and $\overline{BC'} \cong \overline{EF}$, the segment $\overline{A'C'}$ is congruent to the corresponding segment $\overline{D'F'}$ formed by choosing points $D'$ on $\overrightarrow{ED}$ and $F'$ on $\overrightarrow{EF}$ such that $\overline{ED'} \cong \overline{BA'}$ and $\overline{EF'} \cong \overline{BC'}$. This structural approach mirrors our treatment of segment congruence.
+
+\begin{theorem}[Reflexivity of Angle Congruence]
+For any angle $\angle ABC$, it holds that $\angle ABC \cong \angle ABC$.
+\end{theorem}
+
+\begin{proof}
+Choose $A' = A$ and $C' = C$. Clearly, $\overline{BA'} \cong \overline{BA}$ and $\overline{BC'} \cong \overline{BC}$. Thus, $\overline{A'C'} = \overline{AC}$ is trivially congruent to itself.
+\end{proof}
+
+\begin{theorem}[Symmetry of Angle Congruence]
+If $\angle ABC \cong \angle DEF$, then $\angle DEF \cong \angle ABC$.
+\end{theorem}
+
+\begin{proof}
+Given $\angle ABC \cong \angle DEF$, for every $A'$ on $\overrightarrow{BA}$ and $C'$ on $\overrightarrow{BC}$ with $\overline{BA'} \cong \overline{ED}$ and $\overline{BC'} \cong \overline{EF}$, we have $\overline{A'C'} \cong \overline{D'F'}$. By symmetric properties of segment congruence, for every $D'$ on $\overrightarrow{ED}$ and $F'$ on $\overrightarrow{EF}$ with $\overline{ED'} \cong \overline{BA}$ and $\overline{EF'} \cong \overline{BC}$, it follows directly that $\overline{D'F'} \cong \overline{A'C'}$. Hence, $\angle DEF \cong \angle ABC$.
+\end{proof}
+
+\begin{theorem}[Transitivity of Angle Congruence]
+If $\angle ABC \cong \angle DEF$ and $\angle DEF \cong \angle GHI$, then $\angle ABC \cong \angle GHI$.
+\end{theorem}
+
+\begin{proof}
+Given $\angle ABC \cong \angle DEF$ and $\angle DEF \cong \angle GHI$, let $A'$ be on $\overrightarrow{BA}$ and $C'$ be on $\overrightarrow{BC}$, and construct corresponding points $D', F'$ on $\overrightarrow{ED}, \overrightarrow{EF}$ and $G', I'$ on $\overrightarrow{HG}, \overrightarrow{HI}$ such that respective base segments match. By the definition of the first congruence, $\overline{A'C'} \cong \overline{D'F'}$. By the definition of the second congruence, $\overline{D'F'} \cong \overline{G'I'}$. By the transitivity of segment congruence, $\overline{A'C'} \cong \overline{G'I'}$, establishing that $\angle ABC \cong \angle GHI$.
+\end{proof}
+
 \end{document}
