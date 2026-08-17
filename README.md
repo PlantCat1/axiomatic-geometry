@@ -11,3 +11,6 @@ also has parition of the plane as an equivalence relation which i think is cool
 also plan on adding some philosophy to it maybe.
 
 need to fix readme lol. if u wanna read it go to main/main.pdf. currently the chapter on primative notions is by far the best.
+
+also talk about the angle definitions in the readme even tho i forgot how tf i even came up with that. like wtf is a
+$$\angle ABC \cong \angle A'B'C' \iff \left( \forall X \in \overrightarrow{BA} \setminus \{B\}, \forall Y \in \overrightarrow{BC} \setminus \{B\}, \exists X' \in \overrightarrow{B'A'}, \exists Y' \in \overrightarrow{B'C'} : BX \cong B'X' \land BY \cong B'Y' \land XY \cong X'Y' \right)$$
