@@ -6,6 +6,10 @@ This formalization is built on a single set of points $\mathbf{P}$ and two prima
 
 This project is heavily inspired by Tarski's Geometry. However, a set-theoretic approach is taken rather than the creation of a pure first-order logic system. As a result, this system constructs linear notions, angles, and half-planes as first-class set-theoretic objects. Derived relations such as parallelism are also defined via set operations, allowing for them to act as equivalence relations. Differences in axioms are also present.
 
+efines the perpendicular bisector $\ell_{AB}$ as an equidistant locus of point pairs, yielding the synthetic midpoint $M$ via set intersection without numeric division ($M = \frac{A+B}{2}$):
+
+$$\ell_{AB} := \{ X \in \mathcal{P} \mid AX \cong XB \}, \qquad \text{Mid}(A, B) := \overline{AB} \cap \ell_{AB} = \{ M \in \mathcal{P} \mid \mathcal{B}(A, M, B) \land AM \cong MB \}$$
+
 also has parition of the plane as an equivalence relation which i think is cool
 
 also plan on adding some philosophy to it maybe.
