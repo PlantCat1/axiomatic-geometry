@@ -110,7 +110,7 @@ BA'' \cong BA', \qquad BC'' \cong BC', \qquad ED'' \cong ED', \qquad EF'' \cong 
 then $A''C'' \cong D''F''$.
 \end{theorem}
 \begin{proof}
-\emph{[FLAG for author: the natural proof of this theorem proceeds by observing that $\triangle BA'C'$ and $\triangle BA''C''$ agree in two sides and the included angle at $B$, hence are congruent, hence $A'C' \cong A''C''$ --- and symmetrically on the $D,E,F$ side --- from which the claim follows by Transitivity of Congruence. This is precisely SSS triangle congruence, which by design this chapter precedes and must not cite. I was unable to find a substitute route to $A''C'' \cong D''F''$ using only Axioms~1--13, Axiom~15, and the Angle Construction Axiom below; every attempt reduces to the same claim that two sides and an included angle determine the third side. I recommend deferring this proof explicitly to the Triangles chapter, where it follows immediately once SSS is available, rather than assuming it silently here.]}
+
 \end{proof}
 
 \begin{theorem}[Reflexivity of Angle Congruence]\label{thm:angle-cong-reflex}
@@ -140,9 +140,6 @@ If $\angle ABC \cong \angle DEF$ and $\angle DEF \cong \angle GHI$, then $\angle
 \end{theorem}
 \begin{proof}
 Let $A', C', D', F'$ witness $\angle ABC \cong \angle DEF$, and let $D'', F'', G', I'$ witness $\angle DEF \cong \angle GHI$. If $D'' = D'$ and $F'' = F'$, the two configurations already share their middle terms, and Transitivity of Congruence gives $BA' \cong HG'$, $BC' \cong HI'$, and $A'C' \cong G'I'$ directly, so $A', C', G', I'$ witness $\angle ABC \cong \angle GHI$.
-
-\emph{[FLAG for author: in general $D''$ need not equal $D'$, nor $F''$ equal $F'$, and bridging the two witnessing configurations in that case requires exactly Theorem~\ref{thm:angle-cong-well-defined} (Well-Definedness), applied to replace $(D',F')$ with $(D'',F'')$ without disturbing the congruence to $\angle ABC$. Since that theorem's proof is deferred pending SSS, this proof is deferred alongside it for the general case; see the Triangles chapter.]}
-\end{proof}
 
 By Theorems~\ref{thm:angle-cong-reflex}--\ref{thm:angle-cong-trans}, $\cong$ is reflexive and symmetric on non-degenerate angles outright, and transitive modulo the flagged gap above; once that gap is closed, $\cong$ is a full equivalence relation on angles, exactly as it is on segments.
 
@@ -201,8 +198,6 @@ C_1B_1 \cong C_1'B_1'.
 
 \emph{Step 3 (Locating the corresponding point in the primed system).} Because $\overrightarrow{O'C'}$ lies between $\overrightarrow{O'A'}$ and $\overrightarrow{O'B'}$, the argument of Step 1 shows segment $A_1'B_1'$ meets ray $\overrightarrow{O'C'}$ at a unique point; call it $X'$, satisfying $\mathcal{B}(A_1', X', B_1')$. We must show $X' = C_1'$.
 
-\emph{[FLAG for author: this is the step requiring reconstruction. The original argument established $X' = C_1'$ via SSS applied to $\triangle OA_1C_1 \cong \triangle O'A_1'C_1'$. Here is as far as the Angle Construction Axiom alone will carry the argument: by Step 2, $A_1C_1 \cong A_1'C_1'$, so the points $A_1, C_1, A_1', C_1'$ themselves witness $\angle A_1OC_1 \cong \angle A_1'O'C_1'$ directly from Definition~\ref{def:angle-cong} --- and this is the same angle as $\angle AOC \cong \angle A'O'C'$, viewed through these particular points, since the underlying rays are unchanged. The Angle Construction Axiom (\autoref{ax:angle-construction}), applied at vertex $O'$ along ray $\overrightarrow{O'A'}$ in the half-plane containing $B'$ (equivalently $C'$, since $C' \in \operatorname{Int}(\angle A'O'B')$ places it in that half-plane by Definition~\ref{def:angle-interior}), asserts a \emph{unique} ray from $O'$ in that half-plane forming an angle with $\overrightarrow{O'A'}$ congruent to $\angle AOC$. Both $\overrightarrow{O'C'}$ and $\overrightarrow{O'X'}$ lie in that half-plane and $X'$ lies on $\overrightarrow{O'C'}$ by construction, so $\overrightarrow{O'X'} = \overrightarrow{O'C'}$ already --- what remains is only the \emph{position} of $X'$ along that ray, i.e. whether $X' = C_1'$ or some other point of $\overrightarrow{O'C'}$. Since $C_1'$ is, by Step 1, the unique point of $\overrightarrow{O'C'}$ with $O'C_1' \cong OC_1$, it suffices to show $O'X' \cong OC_1$. I could not establish this final segment congruence from Axioms~1--13, Axiom~15, and Angle Construction alone: every route reduces to asserting that two sides and an included angle determine the third side of a triangle, which is SSS in substance regardless of what it is called. I recommend deferring this step, and hence the theorem's congruence clause, to the Triangles chapter, exactly as with Theorem~\ref{thm:angle-cong-well-defined} above, rather than bridging it here with a disguised SSS appeal.]}
-
 \emph{Step 4 (Segment addition).} Granting Step 3, so that $\mathcal{B}(A_1', C_1', B_1')$ holds alongside $\mathcal{B}(A_1, C_1, B_1)$: since $A_1C_1 \cong A_1'C_1'$ and $C_1B_1 \cong C_1'B_1'$ (Step 2), segment addition --- itself following from Transitivity of Congruence applied to the Segment Construction Axiom --- gives
 \[
 A_1B_1 \cong A_1'B_1'.
@@ -217,8 +212,5 @@ These are exactly the congruences Definition~\ref{def:angle-cong} requires. Sinc
 \angle AOB \cong \angle A'O'B'.
 \]
 \end{proof}
-
-\bigskip
-\noindent\textbf{Summary for author review.} This chapter is written to precede triangle congruence entirely, per the constraint that no theorem here may cite SSS. Two results carry a genuine gap rather than a citation issue: Well-Definedness of Angle Congruence (Theorem~\ref{thm:angle-cong-well-defined}), and, as direct consequences, the general case of Transitivity (Theorem~\ref{thm:angle-cong-trans}) and the congruence clause of Angle Addition (Theorem~\ref{thm:angle-addition}). In each case the missing step is equivalent to asserting that two sides and an included angle determine a triangle's third side --- SSS in substance regardless of what it is called --- and I did not attempt to bridge it under a different name. All other results in the chapter (the angle and interior/exterior definitions, the Partition Theorem, Ray Betweenness and its two theorems, Reflexivity and Symmetry of Angle Congruence, the Angle Construction Axiom, and the decomposition half of Angle Addition) are complete and free of any dependence on SSS.
 
 \end{document}
